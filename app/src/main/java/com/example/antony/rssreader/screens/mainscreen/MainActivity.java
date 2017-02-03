@@ -1,4 +1,4 @@
-package com.example.antony.rssreader;
+package com.example.antony.rssreader.screens.mainscreen;
 
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.adapters.FeedAdapter;
 
 public class MainActivity extends AppCompatActivity {
