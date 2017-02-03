@@ -15,8 +15,8 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="240dp"
             android:id="@+id/menuRw"
-            android:layout_gravity="start"
             android:background="@android:color/black"
+            android:layout_gravity="start"
             android:layout_height="match_parent" />
     </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>
