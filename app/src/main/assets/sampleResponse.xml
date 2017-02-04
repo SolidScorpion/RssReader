@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.gawker.com/~d/styles/itemcontent.css"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/" version="2.0">
+    <channel>
+        <title>Kotaku</title>
+        <link>http://kotaku.com</link>
+        <description>The Gamer's Guide</description>
+        <language>en</language>
+        <feedburner:info uri="kotaku/full" />
+        <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" href="http://pubsubhubbub.appspot.com/"
+            rel="hub" />
+        <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" href="http://www.kotaku.com/index.xml"
+            rel="self" type="application/rss+xml" />
+        <feedburner:browserFriendly>This is an XML content feed. It is intended to be viewed in a
+            newsreader or syndicated to another site.
+        </feedburner:browserFriendly>
+        <item>
+            <title>Angela Hill, an MMA fighter I interviewed about cosplay and video games, returns
+                to the UFC this wee
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/Sp7AcTOTCTc/angela-hill-an-mma-fighter-i-interviewed-about-cosplay-1791987990
+            </link>
+            <description>&lt;p &gt;&lt;span class=""&gt;&lt;iframe allowfullscreen="allowfullscreen"
+                scrolling="no" mozallowfullscreen="mozallowfullscreen" height="159"
+                id="twitter-827589418814947333"
+                src="https://kinja.com/ajax/inset/iframe?id=twitter-827589418814947333&amp;amp;autosize=1"
+                webkitAllowFullScreen="webkitAllowFullScreen" class="core-inset" width="640"
+                frameborder="0"&gt;&lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Angela
+                Hill, &lt;a
+                href="http://kotaku.com/mma-champion-uses-video-games-and-cosplay-to-deal-with-1790049897#_ga=1.227081117.1435823958.1484782817"
+                rel="nofollow"&gt;an MMA fighter I interviewed about cosplay and video games&lt;/a&gt;,
+                returns to the UFC this weekend.&lt;/strong&gt; While the UFC’s weigh-in dress code
+                doesn’t allow for as elaborate of cosplay as Invicta, Hill made up for it by doing a
+                great impersonation of &lt;em&gt;Street Fighter&lt;/em&gt;’s Sagat.&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/angela-hill-an-mma-fighter-i-interviewed-about-cosplay-1791987990"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/Sp7AcTOTCTc" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">ufc</category>
+            <category domain="">mma</category>
+            <category domain="">angela hill</category>
+            <pubDate>Sat, 4 Feb 2017 01:00:00 GMT</pubDate>
+            <guid isPermaLink="false">1791987990</guid>
+            <dc:creator><![CDATA[Nathan Grayson]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/angela-hill-an-mma-fighter-i-interviewed-about-cosplay-1791987990
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Pirates Pounce On Conan Exiles After Developers Accidentally Remove DRM</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/Fxebk15kMCI/pirates-pounce-on-conan-exiles-after-developers-acciden-1791987549
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--wZYZ_AHA--/c_fit,fl_progressive,q_80,w_636/a4siajyrlj8rhiq20frw.jpg"
+                /&gt;&lt;p&gt;In the never-ending battle between pirates and DRM makers, there are
+                no easy victories. Or at least, that &lt;em&gt;was &lt;/em&gt;the case with &lt;a
+                href="http://kotaku.com/the-anti-piracy-tech-thats-tearing-video-game-hackers-a-1759518600"
+                target="_blank" rel="noopener"&gt;notorious anti-tamper tech Denuvo&lt;/a&gt; until,
+                well, yesterday.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://steamed.kotaku.com/pirates-pounce-on-conan-exiles-after-developers-acciden-1791987549"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/Fxebk15kMCI" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">conan exiles</category>
+            <category domain="">funcom</category>
+            <category domain="">piracy</category>
+            <category domain="">drm</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Sat, 4 Feb 2017 00:33:25 GMT</pubDate>
+            <guid isPermaLink="false">1791987549</guid>
+            <dc:creator>
+                <![CDATA[Nathan Grayson on Steamed, shared by Nathan Grayson to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://steamed.kotaku.com/pirates-pounce-on-conan-exiles-after-developers-acciden-1791987549
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>What It’s Like To Be An Iranian Game Developer In Trump’s America</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/Yr8TZny-eZ0/what-it-s-like-to-be-an-iranian-game-developer-in-trump-1791985347
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--oPTY-HXq--/c_fit,fl_progressive,q_80,w_636/mb1z1kv8z9k0na5b5u5b.jpg"
+                /&gt;&lt;p&gt;Navid Khonsari has been a legal resident of the United States for 17
+                years. He’s worked on games like&lt;em&gt; Grand Theft Auto: San Andreas&lt;/em&gt;,
+                &lt;em&gt;Resident Evil 7&lt;/em&gt;, and an interactive story about the Iranian
+                Revolution called &lt;em&gt;1979 Revolution: Black Friday&lt;/em&gt;. These days,
+                though, he doesn’t feel entirely welcome in the US or Iran, and…&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/what-it-s-like-to-be-an-iranian-game-developer-in-trump-1791985347"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/Yr8TZny-eZ0" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">1979 revolution black friday</category>
+            <category domain="">navid khonsari</category>
+            <category domain="">grand theft auto</category>
+            <category domain="">donald trump</category>
+            <category domain="">iran</category>
+            <category domain="">pc</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Fri, 3 Feb 2017 23:20:00 GMT</pubDate>
+            <guid isPermaLink="false">1791985347</guid>
+            <dc:creator><![CDATA[Nathan Grayson]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/what-it-s-like-to-be-an-iranian-game-developer-in-trump-1791985347
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>A Look at How Batman Has Totally Taken Over One Batfan’s Life</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/-tAiP742ggs/a-look-at-how-batman-has-totally-taken-over-one-batfan-1791960298
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--7s1MGTjB--/c_fit,fl_progressive,q_80,w_636/cwpmkl02pnavdtx0637m.gif"
+                /&gt;&lt;p&gt;Before you start to worry, the subject of the &lt;em&gt;Being Batman&lt;/em&gt;
+                short film clearly states he knows the difference between reality and fiction.
+                Still, this ultra-dedicated Batfan says he’s “out there every night” catching
+                criminals.&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://io9.gizmodo.com/a-look-at-how-batman-has-totally-taken-over-one-batfan-1791960298"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/-tAiP742ggs" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">batman</category>
+            <category domain="">brampton batman</category>
+            <category domain="">fandom</category>
+            <pubDate>Fri, 3 Feb 2017 16:30:00 GMT</pubDate>
+            <guid isPermaLink="false">1791960298</guid>
+            <dc:creator>
+                <![CDATA[Evan Narcisse on io9, shared by Riley MacLeod to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://io9.gizmodo.com/a-look-at-how-batman-has-totally-taken-over-one-batfan-1791960298
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Today's Best Deals: External Storage, Waste King, Sony Bluetooth Headphones, and
+                More
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/cbGUDPgR5zI/todays-best-deals-external-storage-waste-king-sony-b-1791958124
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--V_EC7sY6--/c_fit,fl_progressive,q_80,w_636/iwswar5nhep1hodoz8pi.jpg"
+                /&gt;&lt;p&gt;An &lt;a rel="nofollow" data-amazonasin="B000DZGN7Q"
+                data-amazonsubtag="[p|1791958124[a|B000DZGN7Q[au|5727177402741770316[b|deals"
+                onclick="window.ga(&amp;#39;send&amp;#39;, &amp;#39;event&amp;#39;, &amp;#39;Commerce&amp;#39;,
+                &amp;#39;deals - Today\&amp;#39;s Best Deals: External Storage, Waste King, Sony
+                Bluetooth Headphones, and More&amp;#39;, &amp;#39;B000DZGN7Q&amp;#39;);"
+                data-amazontag="kotakuamzn-20"
+                href="https://www.amazon.com/Waste-King-1-0-Horsepower-Continuous-Feed-Disposal/dp/B000DZGN7Q?tag=kotakuamzn-20&amp;amp;ascsubtag=[t|link[p|1791958124[a|B000DZGN7Q[au|5727177402741770316[b|deals"&gt;ultra-powerful
+                garbage disposal&lt;/a&gt;, &lt;a rel="nofollow" data-amazonasin="B00ZTRXFBA"
+                data-amazonsubtag="[p|1791958124[a|B00ZTRXFBA[au|5727177402741770316[b|deals"
+                onclick="window.ga(&amp;#39;send&amp;#39;, &amp;#39;event&amp;#39;, &amp;#39;Commerce&amp;#39;,
+                &amp;#39;deals - Today\&amp;#39;s Best Deals: External Storage, Waste King, Sony
+                Bluetooth Headphones, and More&amp;#39;, &amp;#39;B00ZTRXFBA&amp;#39;);"
+                data-amazontag="kotakuamzn-20"
+                href="https://www.amazon.com/Seagate-Backup-Portable-External-STDR4000100/dp/B00ZTRXFBA?tag=kotakuamzn-20&amp;amp;ascsubtag=[t|link[p|1791958124[a|B00ZTRXFBA[au|5727177402741770316[b|deals"&gt;4TB
+                hard drive&lt;/a&gt;, and &lt;a
+                href="http://www.ebay.com/itm/Sony-Wireless-On-Ear-Stereo-Headphones-Black-/191985049421"
+                target="_blank" rel="noopener"&gt;wireless headphones&lt;/a&gt; lead off Friday’s
+                best deals from around the web.&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://deals.kinja.com/todays-best-deals-external-storage-waste-king-sony-b-1791958124"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/cbGUDPgR5zI" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">kinja deals</category>
+            <category domain="">deals</category>
+            <category domain="">daily deals</category>
+            <pubDate>Fri, 3 Feb 2017 14:19:00 GMT</pubDate>
+            <guid isPermaLink="false">1791958124</guid>
+            <dc:creator>
+                <![CDATA[Shep McAllister on Deals, shared by Shep McAllister to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://deals.kinja.com/todays-best-deals-external-storage-waste-king-sony-b-1791958124
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Scum’s Wish Is A Disturbing Anime About Lovers Who Love Other People</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/56Qp-GZq4GM/scum-s-wish-is-a-disturbing-anime-about-lovers-who-love-1791980827
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--CtajydlM--/c_fit,fl_progressive,q_80,w_636/p2zygk7kns1kqjjya5kl.png"
+                /&gt;&lt;p&gt; In media, teenagers often possess a delicate balance of callousness
+                and narcissism. In CW dramas like &lt;em&gt;Gossip Girl&lt;/em&gt;, producers lean
+                into their more sociopathic tendencies, not considering the emotional debates that
+                lead them to cheat, steal or hurt others, all well-trod stereotypes of teenagers
+                discovering themselves.…&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/scum-s-wish-is-a-disturbing-anime-about-lovers-who-love-1791980827"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/56Qp-GZq4GM" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">anime</category>
+            <category domain="">scums wish</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Fri, 3 Feb 2017 22:00:00 GMT</pubDate>
+            <guid isPermaLink="false">1791980827</guid>
+            <dc:creator><![CDATA[Cecilia D&#39;Anastasio]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/scum-s-wish-is-a-disturbing-anime-about-lovers-who-love-1791980827
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>The Book That Inspired The Witcher Games Is Just $3 on Kindle Today</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/Eu7NmrGAKiQ/the-book-that-inspired-the-witcher-games-is-just-3-on-1791975374
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--nc9h7UK4--/c_fit,fl_progressive,q_80,w_636/skjml6f34xokhbsrzvr3.jpg"
+                /&gt;&lt;p&gt;It’s not unusual to see terrible spin-off novels based on hit video
+                game series, but &lt;em&gt;The Witcher &lt;/em&gt;is actually a hit video game
+                series spun off of a fantastic series of novels. The first chapter in the series,
+                &lt;a rel="nofollow" data-amazonasin="B0010SIPT4"
+                data-amazonsubtag="[p|1791975374[a|B0010SIPT4[au|5727177402741770316[b|deals"
+                onclick="window.ga(&amp;#39;send&amp;#39;, &amp;#39;event&amp;#39;, &amp;#39;Commerce&amp;#39;,
+                &amp;#39;deals - The Book That Inspired The Witcher Games Is Just $3 on Kindle Today&amp;#39;,
+                &amp;#39;B0010SIPT4&amp;#39;);" data-amazontag="kotakuamzn-20"
+                href="https://www.amazon.com/dp/B0010SIPT4/?kinja_price=3&amp;amp;tag=kotakuamzn-20&amp;amp;ascsubtag=[t|link[p|1791975374[a|B0010SIPT4[au|5727177402741770316[b|deals"&gt;&lt;em&gt;The
+                Last Wish, &lt;/em&gt;is only $3 on Kindle today&lt;/a&gt;. Even if you haven’t
+                played the games, it’s a great introduction to…&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://deals.kinja.com/the-book-that-inspired-the-witcher-games-is-just-3-on-1791975374"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/Eu7NmrGAKiQ" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">kinja deals</category>
+            <category domain="">deals</category>
+            <category domain="">witcher</category>
+            <category domain="">books</category>
+            <category domain="">ebooks</category>
+            <category domain="">media</category>
+            <category domain="">amazon</category>
+            <category domain="">kindle</category>
+            <pubDate>Fri, 3 Feb 2017 20:05:00 GMT</pubDate>
+            <guid isPermaLink="false">1791975374</guid>
+            <dc:creator>
+                <![CDATA[Shep McAllister on Deals, shared by Shep McAllister to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://deals.kinja.com/the-book-that-inspired-the-witcher-games-is-just-3-on-1791975374
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>What Are You Playing This Weekend?</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/V65f-Wlm-5s/what-are-you-playing-this-weekend-1791976712
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--UzK46sRU--/c_fit,fl_progressive,q_80,w_636/h253bthiazxb4tn9zzvk.jpg"
+                /&gt;&lt;p&gt;Do you even have to ask?&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/what-are-you-playing-this-weekend-1791976712"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/V65f-Wlm-5s" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">tell us</category>
+            <category domain="">tell us dammit</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Fri, 3 Feb 2017 20:30:00 GMT</pubDate>
+            <guid isPermaLink="false">1791976712</guid>
+            <dc:creator><![CDATA[Riley MacLeod]]></dc:creator>
+            <feedburner:origLink>http://kotaku.com/what-are-you-playing-this-weekend-1791976712
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>The third Pokémon Sun and Moon Global Mission reached its goal today.</title>
+            <link>http://feeds.gawker.com/~r/kotaku/full/~3/l4CAucuFGv4/1791975743</link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--arQ5XVe---/c_fit,fl_progressive,q_80,w_636/dsp4jiyndqwi7gdk0wdi.jpg"
+                /&gt;&lt;p&gt;&lt;strong&gt;The third &lt;em&gt;Pokémon Sun and Moon&lt;/em&gt;
+                Global Mission &lt;a href="https://twitter.com/SerebiiNet/status/827587818901872640"
+                target="_blank" rel="noopener"&gt;reached its goal today&lt;/a&gt;. &lt;/strong&gt;Players
+                successfully completed one million trades, and are now heading to the second
+                milestone of &lt;em&gt;two&lt;/em&gt; million trades. Good luck!&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/1791975743"&gt;Read more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/l4CAucuFGv4" height="1" width="1"
+                alt=""/&gt;</description>
+            <pubDate>Fri, 3 Feb 2017 20:11:44 GMT</pubDate>
+            <guid isPermaLink="false">1791975743</guid>
+            <dc:creator><![CDATA[Gita Jackson]]></dc:creator>
+            <feedburner:origLink>http://kotaku.com/1791975743</feedburner:origLink>
+        </item>
+        <item>
+            <title>What's The Best D&amp;D Character You’ve Ever Made?</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/eKqVa-XHGls/whats-the-best-d-d-character-you-ve-ever-made-1791975403
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--PABXqGi7--/c_fit,fl_progressive,q_80,w_636/qug1pqg1zmkmsv5b8v3u.png"
+                /&gt;&lt;p&gt;Rare are the opportunities for &lt;em&gt;Dungeons &amp;amp; Dragons
+                &lt;/em&gt;fans to geek out about their favorite character. It’s like explaining
+                your dream to someone. A few seconds in, your poor non-&lt;em&gt;D&amp;amp;D&lt;/em&gt;-playing
+                friend’s eyes glaze over in a bored daze.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/whats-the-best-d-d-character-you-ve-ever-made-1791975403"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/eKqVa-XHGls" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">dd</category>
+            <category domain="">dungeons dragons</category>
+            <category domain="">role playing games</category>
+            <category domain="">rpg</category>
+            <category domain="">tabletop</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Fri, 3 Feb 2017 20:05:00 GMT</pubDate>
+            <guid isPermaLink="false">1791975403</guid>
+            <dc:creator><![CDATA[Cecilia D&#39;Anastasio]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/whats-the-best-d-d-character-you-ve-ever-made-1791975403
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Here's How Fast Cars Would Be If They Advanced At The Pace Of Computers</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/5nBjx7z4n0s/heres-what-cars-would-be-like-if-they-advanced-at-the-p-1791938679
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--VTP7FFMs--/c_fit,fl_progressive,q_80,w_636/qm3makkirfm1afpf7nso.png"
+                /&gt;&lt;p&gt;The idea of comparing the pace of development of computers to cars has
+                been around a while. &lt;em&gt;Snopes&lt;/em&gt; traces the idea all the way back to
+                &lt;a href="http://www.snopes.com/humor/jokes/autos.asp" target="_blank"
+                rel="noopener"&gt;some early-internet joke in 1997, even.&lt;/a&gt; Fundamentally,
+                it’s sort of an absurd comparison—the two technologies are so different, they’re
+                really not comparable. I did it anyway.&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://jalopnik.com/heres-what-cars-would-be-like-if-they-advanced-at-the-p-1791938679"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/5nBjx7z4n0s" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">infographics</category>
+            <category domain="">torchlopnik</category>
+            <category domain="">charts</category>
+            <pubDate>Fri, 3 Feb 2017 18:30:00 GMT</pubDate>
+            <guid isPermaLink="false">1791938679</guid>
+            <dc:creator>
+                <![CDATA[Jason Torchinsky on Jalopnik, shared by Riley MacLeod to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://jalopnik.com/heres-what-cars-would-be-like-if-they-advanced-at-the-p-1791938679
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Simpler Video Game Menus Are Better</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/772GmTpfJSc/simpler-video-game-menus-are-better-1791971486
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--iq1R5e7T--/c_fit,fl_progressive,q_80,w_636/xynyxqr1cdeh6s66uzd9.png"
+                /&gt;&lt;p&gt;The release of the former Wii U exclusive &lt;em&gt;Yoshi’s Woolly
+                World&lt;/em&gt; to the Nintendo 3DS demonstrates once again that gaming menus are
+                best when they’re lists. Nothing fancier is needed. We don’t need to be able to
+                wander every which way through them.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/simpler-video-game-menus-are-better-1791971486"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/772GmTpfJSc" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">game design</category>
+            <category domain="">yoshis woolly world</category>
+            <category domain="">kotaku core</category>
+            <category domain="">3ds</category>
+            <category domain="">nintendo</category>
+            <category domain="">wii u</category>
+            <pubDate>Fri, 3 Feb 2017 19:10:00 GMT</pubDate>
+            <guid isPermaLink="false">1791971486</guid>
+            <dc:creator><![CDATA[Stephen Totilo]]></dc:creator>
+            <feedburner:origLink>http://kotaku.com/simpler-video-game-menus-are-better-1791971486
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Replay Red Dead Revolver On Your PS4 For $10</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/2gGbEWPpfPs/replay-red-dead-revolver-on-your-ps4-for-10-1791965487
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--NLVzQT7E--/c_fit,fl_progressive,q_80,w_636/qyrg6dw4xyclwh7g6rgz.jpg"
+                /&gt;&lt;p&gt;You could sit quietly in a chair, staring at a wall until the moment
+                &lt;a
+                href="http://kotaku.com/watch-the-first-trailer-for-red-dead-redemption-2-1788022632"
+                target="_blank" rel="noopener"&gt;&lt;em&gt;Red Dead Redemption 2&lt;/em&gt;&lt;/a&gt;
+                comes out, or you could pass the time by replaying the original &lt;a rel="nofollow"
+                data-amazonasin="B01M15CBQB"
+                data-amazonsubtag="[p|1791965487[a|B01M15CBQB[au|5727177402741770316[b|deals"
+                onclick="window.ga(&amp;#39;send&amp;#39;, &amp;#39;event&amp;#39;, &amp;#39;Commerce&amp;#39;,
+                &amp;#39;deals - Replay Red Dead Revolver On Your PS4 For $10&amp;#39;, &amp;#39;B01M15CBQB&amp;#39;);"
+                data-amazontag="kotakuamzn-20"
+                href="https://www.amazon.com/Red-Dead-Revolver-Digital-Code/dp/B01M15CBQB?th=1&amp;amp;tag=kotakuamzn-20&amp;amp;ascsubtag=[t|link[p|1791965487[a|B01M15CBQB[au|5727177402741770316[b|deals"&gt;&lt;em&gt;Red
+                Dead Revolver&lt;/em&gt;, available on PS4 for $10&lt;/a&gt;.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://deals.kinja.com/replay-red-dead-revolver-on-your-ps4-for-10-1791965487"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/2gGbEWPpfPs" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">kinja deals</category>
+            <category domain="">deals</category>
+            <category domain="">gaming</category>
+            <category domain="">ps4</category>
+            <category domain="">amazon</category>
+            <pubDate>Fri, 3 Feb 2017 17:09:29 GMT</pubDate>
+            <guid isPermaLink="false">1791965487</guid>
+            <dc:creator>
+                <![CDATA[Shep McAllister on Deals, shared by Shep McAllister to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://deals.kinja.com/replay-red-dead-revolver-on-your-ps4-for-10-1791965487
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Watching Someone Else Play Resident Evil 7 On YouTube: The Kotaku Review</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/V9V6qeqznH8/watching-someone-else-play-resident-evil-7-on-youtube-1791970555
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--f2HaShr---/c_fit,fl_progressive,q_80,w_636/p6tjb13cxkmce0grqsyw.png"
+                /&gt;&lt;p&gt;Despite having a taste for horror movies and novels, horror video
+                games freak me the hell out. Still, I was curious about &lt;em&gt;Resident Evil 7&amp;#39;s&lt;/em&gt;
+                promise of a Southern Gothic zombie game. Like millions of other &lt;a
+                href="http://kotaku.com/how-to-enjoy-resident-evil-7-if-you-re-a-big-scaredy-ca-1791702785"
+                rel="nofollow"&gt;scaredy cats&lt;/a&gt; out there, I decided to watch it on YouTube
+                instead of playing it.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/watching-someone-else-play-resident-evil-7-on-youtube-1791970555"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/V9V6qeqznH8" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">review</category>
+            <category domain="">resident evil 7</category>
+            <category domain="">resident evil</category>
+            <category domain="">lets play</category>
+            <category domain="">youtube</category>
+            <category domain="">kotaku core</category>
+            <pubDate>Fri, 3 Feb 2017 18:14:00 GMT</pubDate>
+            <guid isPermaLink="false">1791970555</guid>
+            <dc:creator><![CDATA[Gita Jackson]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/watching-someone-else-play-resident-evil-7-on-youtube-1791970555
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Someone's Gotta Design All Those Game Logos</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/1A_ge4elTYw/someones-gotta-design-all-those-game-logos-1791944138
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--Bw_H4EIH--/c_fit,fl_progressive,q_80,w_636/ybtwf7nrrstnvkekhlnd.jpg"
+                /&gt;&lt;p&gt;Omer Younas is a veteran games artist who specializes in 2D stuff like
+                logo design and menus. He’s worked on games like &lt;em&gt;Battlefield 1&lt;/em&gt;,
+                &lt;em&gt;Metal Gear Solid V&lt;/em&gt; and the &lt;em&gt;Crysis &lt;/em&gt;series.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/someones-gotta-design-all-those-game-logos-1791944138"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/1A_ge4elTYw" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">fine art</category>
+            <category domain="">kotaku core</category>
+            <pubDate>Fri, 3 Feb 2017 17:30:00 GMT</pubDate>
+            <guid isPermaLink="false">1791944138</guid>
+            <dc:creator><![CDATA[Luke Plunkett]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/someones-gotta-design-all-those-game-logos-1791944138
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Can Grieving Mothers Stop The Public From Forgetting The NFL's Brain-Trauma
+                Crisis?
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/MWTMt-Ag9Dc/can-grieving-mothers-stop-the-public-from-forgetting-th-1791934820
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--DcaBOOK_--/c_fit,fl_progressive,q_80,w_636/ikg3iczh5o7gstjhph2c.jpg"
+                /&gt;&lt;p&gt;On Monday afternoon, a group of mothers and other family members of
+                men who have died with chronic traumatic encephalopathy gathered in a room at a
+                hotel in Houston to hold a press conference announcing CTE Awareness Day and
+                promoting their group’s eponymous website, &lt;a href="http://www.facesofcte.com/"
+                target="_blank" rel="noopener"&gt;Faces of CTE&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://deadspin.com/can-grieving-mothers-stop-the-public-from-forgetting-th-1791934820"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/MWTMt-Ag9Dc" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">bad brains</category>
+            <category domain="">cte</category>
+            <category domain="">nfl</category>
+            <category domain="">football</category>
+            <category domain="">junior seau</category>
+            <pubDate>Fri, 3 Feb 2017 16:54:00 GMT</pubDate>
+            <guid isPermaLink="false">1791934820</guid>
+            <dc:creator>
+                <![CDATA[Lindsey Adler on Deadspin, shared by Riley MacLeod to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://deadspin.com/can-grieving-mothers-stop-the-public-from-forgetting-th-1791934820
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>'We Are All Scared For Our Jobs': GameStop Employees Share Their Circle Of Life
+                Stories
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/LFUjg_tcH7w/we-are-all-scared-for-our-jobs-gamestop-employees-talk-1791963185
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--_QWz_SC5--/c_fit,fl_progressive,q_80,w_636/pryxztp78t0utctdr84z.png"
+                /&gt;&lt;p&gt;GameStop employees have always been pushy, but an aggressive new
+                policy at the video game retail chain is taking their forcefulness to a new level.
+                And some GameStop staff say it’s making them feel like they have to lie to customers
+                or lose their jobs.&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/we-are-all-scared-for-our-jobs-gamestop-employees-talk-1791963185"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/LFUjg_tcH7w" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">gamestop</category>
+            <category domain="">kotakucore</category>
+            <category domain="">retail horror</category>
+            <pubDate>Fri, 3 Feb 2017 16:30:00 GMT</pubDate>
+            <guid isPermaLink="false">1791963185</guid>
+            <dc:creator><![CDATA[Jason Schreier]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/we-are-all-scared-for-our-jobs-gamestop-employees-talk-1791963185
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Oculus' John Carmack Has Serious Doubts About $500 Million Lawsuit’s Expert
+                Witness [UPDATE]
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/qsAe-OZOiyg/oculus-john-carmack-has-serious-doubts-about-500-milli-1791962658
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--_tL6P2x7--/c_fit,fl_progressive,q_80,w_636/zevgcy2dq85qu2ndtje1.jpg"
+                /&gt;&lt;p&gt;Oculus CTO and renowned &lt;em&gt;Quake &lt;/em&gt;and &lt;em&gt;Doom
+                &lt;/em&gt;programmer John Carmack &lt;a
+                href="https://www.facebook.com/permalink.php?story_fbid=1913546895546485&amp;amp;id=100006735798590"
+                target="_blank" rel="noopener"&gt;slammed &lt;/a&gt;a Dallas jury’s Wednesday &lt;a
+                href="http://kotaku.com/jury-awards-zenimax-half-a-billion-dollars-in-oculus-la-1791885215#_ga=1.20892856.1480717425.1467134244"
+                rel="nofollow"&gt;decision&lt;/a&gt; against Oculus in a $500 million copyright and
+                non-disclosure agreement lawsuit. On &lt;a
+                href="https://www.facebook.com/permalink.php?story_fbid=1913546895546485&amp;amp;id=100006735798590"
+                target="_blank" rel="noopener"&gt;Facebook&lt;/a&gt;, Carmack specifically takes
+                issue with an expert witness whose testimony, he says, is “just not true.”&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/oculus-john-carmack-has-serious-doubts-about-500-milli-1791962658"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/qsAe-OZOiyg" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">oculus</category>
+            <category domain="">vr</category>
+            <category domain="">palmer luckey</category>
+            <category domain="">virtual reality</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Fri, 3 Feb 2017 16:00:00 GMT</pubDate>
+            <guid isPermaLink="false">1791962658</guid>
+            <dc:creator><![CDATA[Cecilia D&#39;Anastasio]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/oculus-john-carmack-has-serious-doubts-about-500-milli-1791962658
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>When Pin-Ups Meet Harry Potter Cosplay</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/sqhCBTnXLz4/when-pin-ups-meet-harry-potter-cosplay-1791949561
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--vKwWeltM--/c_fit,fl_progressive,q_80,w_636/u4bjgf7mp1y14ckuud0y.jpg"
+                /&gt;&lt;p&gt;Kotaku cosplay regular &lt;a
+                href="https://www.facebook.com/itsginnydi/" target="_blank" rel="noopener"&gt;Ginny
+                Di&lt;/a&gt; returns here with a super cool tribute to Gil Elvgren’s iconic pin-up
+                art, giving the 20th century illustrations a &lt;em&gt;Harry Potter&lt;/em&gt;
+                twist.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://cosplay.kotaku.com/when-pin-ups-meet-harry-potter-cosplay-1791949561"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/sqhCBTnXLz4" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">harry potter</category>
+            <category domain="">cosplay</category>
+            <pubDate>Fri, 3 Feb 2017 05:00:52 GMT</pubDate>
+            <guid isPermaLink="false">1791949561</guid>
+            <dc:creator>
+                <![CDATA[Luke Plunkett on Cosplay, shared by Riley MacLeod to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://cosplay.kotaku.com/when-pin-ups-meet-harry-potter-cosplay-1791949561
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>American Truck Simulator’s next map expansion will feature New Mexico, SCS
+                announced yesterday.
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/kQelEdDMBfg/american-truck-simulator-s-next-map-expansion-will-feat-1791959887
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--IkOYkVdL--/c_fit,fl_progressive,q_80,w_636/zwc1okiibmrcf8n57haq.jpg"
+                /&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;American Truck Simulator&lt;/em&gt;’s next map
+                expansion will feature New Mexico&lt;/strong&gt;, &lt;a
+                href="http://blog.scssoft.com/2017/02/american-truck-simulator-heads-towards.html"
+                target="_blank" rel="noopener"&gt;SCS announced yesterday&lt;/a&gt;. The roads draw
+                ever closer to my house. Excellent.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/american-truck-simulator-s-next-map-expansion-will-feat-1791959887"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/kQelEdDMBfg" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">american truck simulator</category>
+            <category domain="">kotakucore</category>
+            <pubDate>Fri, 3 Feb 2017 15:25:00 GMT</pubDate>
+            <guid isPermaLink="false">1791959887</guid>
+            <dc:creator><![CDATA[Riley MacLeod]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/american-truck-simulator-s-next-map-expansion-will-feat-1791959887
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Cut The Cord With Your Choice of Bluetooth Headphone Deals</title>
+            <link>http://feeds.gawker.com/~r/kotaku/full/~3/Iy9_3iCxEfk/1791960034</link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--sl7va0NZ--/c_fit,fl_progressive,q_80,w_636/iidtw6glk9gncmsc7gk9.jpg"
+                /&gt;&lt;p&gt;It’s pretty clear by now that wired headphones are a thing of the past
+                for all but the most serious audiophiles. Luckily, Bluetooth headphones are
+                ubiquitous and affordable, and we’ve spotted three different deals today, &lt;a
+                href="http://www.ebay.com/itm/Sony-Wireless-On-Ear-Stereo-Headphones-Black-/191985049421"
+                target="_blank" rel="noopener"&gt;including on a pair from Sony&lt;/a&gt;.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://deals.kinja.com/1791960034"&gt;Read more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/Iy9_3iCxEfk" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">kinja deals</category>
+            <category domain="">deals</category>
+            <category domain="">audio</category>
+            <category domain="">tech</category>
+            <category domain="">wireless headphones</category>
+            <category domain="">headphones</category>
+            <category domain="">ebay</category>
+            <category domain="">amazon</category>
+            <category domain="">sony</category>
+            <category domain="">mpow</category>
+            <category domain="">j and l</category>
+            <pubDate>Fri, 3 Feb 2017 15:14:00 GMT</pubDate>
+            <guid isPermaLink="false">1791960034</guid>
+            <dc:creator>
+                <![CDATA[Shep McAllister on Deals, shared by Shep McAllister to Kotaku]]></dc:creator>
+            <feedburner:origLink>http://deals.kinja.com/1791960034</feedburner:origLink>
+        </item>
+        <item>
+            <title>Deadspin Lawsuit: Text Messages Show How Baylor Coaches Turned Football Program
+                Into Disciplinary “B
+            </title>
+            <link>http://feeds.gawker.com/~r/kotaku/full/~3/l-KnWrGAeV8/1791957078</link>
+            <description>&lt;p&gt;&lt;strong&gt;Deadspin&lt;/strong&gt; &lt;a
+                href="http://deadspin.com/lawsuit-text-messages-show-how-baylor-coaches-turned-f-1791947070?utm_source=recirculation&amp;amp;utm_medium=recirculation&amp;amp;utm_campaign=fridayAM"
+                target="_blank" rel="noopener"&gt;Lawsuit: Text Messages Show How Baylor Coaches
+                Turned Football Program Into Disciplinary “Black Hole”&lt;/a&gt; | &lt;strong&gt;Jezebel&lt;/strong&gt; &lt;a
+                href="http://jezebel.com/nordstrom-will-no-longer-sell-ivanka-trumps-clothing-li-1791949628?utm_source=recirculation&amp;amp;utm_medium=recirculation&amp;amp;utm_campaign=fridayAM"
+                target="_blank" rel="noopener"&gt;Nordstrom Will No Longer Sell Ivanka Trump’s
+                Clothing Line&lt;/a&gt; | &lt;strong&gt;Sploid&lt;/strong&gt; &lt;a
+                href="http://sploid.gizmodo.com/why-are-the-windows-on-the-boeing-787-dreamliner-so-muc-1791944873?utm_source=recirculation&amp;amp;utm_medium=recirculation&amp;amp;utm_campaign=fridayAM"
+                target="_blank" rel="noopener"&gt;Why Are the Windows on the Boeing 787 Dreamliner
+                So Much Bigger Than Normal Airplanes?&lt;/a&gt; | &lt;strong&gt;The Root&lt;/strong&gt; &lt;a
+                href="http://www.theroot.com/uber-ceo-leaves-trump-advisory-council-after-catching-a-1791947788?utm_source=recirculation&amp;amp;utm_medium=recirculation&amp;amp;utm_campaign=fridayAM"
+                target="_blank" rel="noopener"&gt;Uber CEO Leaves Trump Advisory…&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kinjaroundup.kinja.com/1791957078"&gt;Read more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/l-KnWrGAeV8" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">morning favorites</category>
+            <pubDate>Fri, 3 Feb 2017 13:54:09 GMT</pubDate>
+            <guid isPermaLink="false">1791957078</guid>
+            <dc:creator>
+                <![CDATA[Kinja! on Kinja Roundup, shared by Riley MacLeod to Kotaku]]></dc:creator>
+            <feedburner:origLink>http://kinjaroundup.kinja.com/1791957078</feedburner:origLink>
+        </item>
+        <item>
+            <title>Fire Emblem Heroes Fans Are Deleting And Reinstalling The Game For Better
+                Characters
+            </title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/XVP97508ifs/fire-emblem-heroes-fans-are-deleting-and-reinstalling-t-1791957296
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--8AMri6D4--/c_fit,fl_progressive,q_80,w_636/xabmrwynsb2kwisu8qtp.png"
+                /&gt;&lt;p&gt;&lt;em&gt;Fire Emblem Heroes&lt;/em&gt;, Nintendo’s free mobile
+                strategy game, released yesterday afternoon in the U.S. Instead of actually playing
+                the game, many are finding themselves repeating the opening sections over and over
+                again, in the hopes of cheating the system a little.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/fire-emblem-heroes-fans-are-deleting-and-reinstalling-t-1791957296"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/XVP97508ifs" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">fire emblem</category>
+            <category domain="">fire emblem heroes</category>
+            <category domain="">free</category>
+            <category domain="">nintendo</category>
+            <category domain="">kotaku core</category>
+            <category domain="">gacha</category>
+            <category domain="">mobile</category>
+            <category domain="">ios</category>
+            <category domain="">android</category>
+            <category domain="">intelligent systems</category>
+            <category domain="">editors picks</category>
+            <pubDate>Fri, 3 Feb 2017 14:30:00 GMT</pubDate>
+            <guid isPermaLink="false">1791957296</guid>
+            <dc:creator><![CDATA[Patricia Hernandez]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/fire-emblem-heroes-fans-are-deleting-and-reinstalling-t-1791957296
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>SecretLab Titan Review: A Big Gaming Chair For Big Gaming People</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/KXNXhHO17w0/secretlab-titan-review-a-big-gaming-chair-for-big-gami-1791818211
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--xpeQCpdh--/c_fit,fl_progressive,q_80,w_636/bvufli9pk57qqahwnj10.jpg"
+                /&gt;&lt;p&gt;Standard office and gaming chairs are not built for big and tall
+                people. They cower before our broad frames, shudder beneath our weight and generally
+                fear us. The SecretLab Titan, built for the larger-than-guy-sized gamer, has no
+                fear.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://kotaku.com/secretlab-titan-review-a-big-gaming-chair-for-big-gami-1791818211"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/KXNXhHO17w0" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">hardware</category>
+            <category domain="">gaming chair</category>
+            <category domain="">secret lab</category>
+            <category domain="">titan</category>
+            <category domain="">kotakucore</category>
+            <category domain="">big and tall</category>
+            <pubDate>Fri, 3 Feb 2017 14:00:00 GMT</pubDate>
+            <guid isPermaLink="false">1791818211</guid>
+            <dc:creator><![CDATA[Mike Fahey]]></dc:creator>
+            <feedburner:origLink>
+                http://kotaku.com/secretlab-titan-review-a-big-gaming-chair-for-big-gami-1791818211
+            </feedburner:origLink>
+        </item>
+        <item>
+            <title>Store 4TB of Files (or PS4 Games!) For $110, No Power Cord Required</title>
+            <link>
+                http://feeds.gawker.com/~r/kotaku/full/~3/EhLC0HS06DI/store-4tb-of-files-or-ps4-games-for-110-no-power-c-1791957145
+            </link>
+            <description>&lt;img
+                src="https://i.kinja-img.com/gawker-media/image/upload/s--FK6RoYJY--/c_fit,fl_progressive,q_80,w_636/xvengnzvsqsiowdbcytn.jpg"
+                /&gt;&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: The WD is sold out, but this &lt;a
+                href="http://thewirecutter.com/reviews/best-portable-hard-drive/" target="_blank"
+                rel="noopener"&gt;Wirecutter-recommended&lt;/a&gt; &lt;a rel="nofollow"
+                data-amazonasin="B00ZTRXFBA"
+                data-amazonsubtag="[p|1791957145[a|B00ZTRXFBA[au|5727177402741770316[b|deals"
+                onclick="window.ga(&amp;#39;send&amp;#39;, &amp;#39;event&amp;#39;, &amp;#39;Commerce&amp;#39;,
+                &amp;#39;deals - Store 4TB of Files (or PS4 Games!) For $110, No Power Cord Required&amp;#39;,
+                &amp;#39;B00ZTRXFBA&amp;#39;);" data-amazontag="kotakuamzn-20"
+                href="https://www.amazon.com/Seagate-Backup-Portable-External-STDR4000100/dp/B00ZTRXFBA/ref=sr_1_1?ie=UTF8&amp;amp;qid=1486138263&amp;amp;sr=8-1&amp;amp;keywords=4tb+external&amp;amp;tag=kotakuamzn-20&amp;amp;ascsubtag=[t|link[p|1791957145[a|B00ZTRXFBA[au|5727177402741770316[b|deals"&gt;Seagate
+                Backup Plus 4TB&lt;/a&gt; is available for the same price. &lt;/p&gt;&lt;p&gt;&lt;a
+                href="http://deals.kinja.com/store-4tb-of-files-or-ps4-games-for-110-no-power-c-1791957145"&gt;Read
+                more...&lt;/a&gt;&lt;/p&gt;&lt;img
+                src="http://feeds.feedburner.com/~r/kotaku/full/~4/EhLC0HS06DI" height="1" width="1"
+                alt=""/&gt;</description>
+            <category domain="">kinja deals</category>
+            <category domain="">deals</category>
+            <category domain="">storage</category>
+            <category domain="">tech</category>
+            <category domain="">amazon</category>
+            <category domain="">wd</category>
+            <category domain="">external hard drives</category>
+            <pubDate>Fri, 3 Feb 2017 13:56:00 GMT</pubDate>
+            <guid isPermaLink="false">1791957145</guid>
+            <dc:creator>
+                <![CDATA[Shep McAllister on Deals, shared by Shep McAllister to Kotaku]]></dc:creator>
+            <feedburner:origLink>
+                http://deals.kinja.com/store-4tb-of-files-or-ps4-games-for-110-no-power-c-1791957145
+            </feedburner:origLink>
+        </item>
+    </channel>
+</rss>
