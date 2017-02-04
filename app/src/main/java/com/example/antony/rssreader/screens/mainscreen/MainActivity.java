@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     private ActionBarDrawerToggle mDrawerToggle;
     private NetworkFragment mNetworkFragment;
     private Button mBtn;
+    private FeedAdapter feedAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +58,12 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
         mMenuRw.setLayoutManager(new LinearLayoutManager(this));
         mMenuRw.setAdapter(new MenuAdapter());
         mMainContentRw = (RecyclerView) findViewById(R.id.contentRw);
-        mMainContentRw.setLayoutManager(new LinearLayoutManager(this));
-        mMainContentRw.setAdapter(new FeedAdapter());
+        LinearLayoutManager layout = new LinearLayoutManager(this);
+        mMainContentRw.setLayoutManager(layout);
+        feedAdapter = new FeedAdapter();
+        mMainContentRw.setAdapter(feedAdapter);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layout.getOrientation());
+        mMainContentRw.addItemDecoration(dividerItemDecoration);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -87,8 +93,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     @Override
     public void deliverResult(RssFeed result) {
         List<RssFeedItem> rssFeedItems = new Parser().parseRssFeed(result);
-
-
+        feedAdapter.updateData(rssFeedItems);
     }
 
     @Override
