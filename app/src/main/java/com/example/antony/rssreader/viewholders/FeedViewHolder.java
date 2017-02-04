@@ -12,11 +12,8 @@ import com.example.antony.rssreader.R;
  */
 
 public class FeedViewHolder extends RecyclerView.ViewHolder {
-    public TextView textView;
-    public Button btn;
+
     public FeedViewHolder(View itemView) {
         super(itemView);
-        textView = (TextView) itemView.findViewById(R.id.feedNameTv);
-        btn = (Button) itemView.findViewById(R.id.feedBtn);
     }
 }
