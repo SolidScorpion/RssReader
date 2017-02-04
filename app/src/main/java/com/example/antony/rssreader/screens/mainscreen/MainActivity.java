@@ -16,10 +16,15 @@ import android.widget.Button;
 
 import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.adapters.FeedAdapter;
+import com.example.antony.rssreader.adapters.MenuAdapter;
 import com.example.antony.rssreader.models.RssFeed;
+import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
 import com.example.antony.rssreader.networking.NetworkFragment;
 import com.example.antony.rssreader.utilities.Constants;
+import com.example.antony.rssreader.utilities.Parser;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>{
     private DrawerLayout mDrawerLayout;
@@ -49,8 +54,10 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mMenuRw = (RecyclerView) findViewById(R.id.menuRw);
         mMenuRw.setLayoutManager(new LinearLayoutManager(this));
-        mMenuRw.setAdapter(new FeedAdapter());
+        mMenuRw.setAdapter(new MenuAdapter());
         mMainContentRw = (RecyclerView) findViewById(R.id.contentRw);
+        mMainContentRw.setLayoutManager(new LinearLayoutManager(this));
+        mMainContentRw.setAdapter(new FeedAdapter());
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,7 +86,9 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     @Override
     public void deliverResult(RssFeed result) {
-        String rawResponse = result.getRawResponse();
+        List<RssFeedItem> rssFeedItems = new Parser().parseRssFeed(result);
+
+
     }
 
     @Override
