@@ -13,18 +13,14 @@ import android.support.v4.app.FragmentManager;
 public class NetworkFragment extends Fragment {
     private static final String TAG = "NetworkFragment";
     private static final String URL_KEY = "urlKey";
-    private String mUrl;
     private DownloadCallBack mDownloadCallback;
     private DownloadTask mDownloadTask;
 
-    public static NetworkFragment getInstance(String url, FragmentManager fragmentManager) {
+    public static NetworkFragment getInstance(FragmentManager fragmentManager) {
         NetworkFragment networkFragment = (NetworkFragment) fragmentManager
                 .findFragmentByTag(NetworkFragment.TAG);
         if (networkFragment == null) {
             networkFragment = new NetworkFragment();
-            Bundle args = new Bundle();
-            args.putString(URL_KEY, url);
-            networkFragment.setArguments(args);
             fragmentManager.beginTransaction().add(networkFragment, TAG).commit();
         }
         return networkFragment;
@@ -48,11 +44,10 @@ public class NetworkFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mUrl = getArguments().getString(URL_KEY);
         setRetainInstance(true);
     }
 
-    public void startDownload() {
+    public void startDownload(String mUrl) {
         mDownloadTask = new DownloadTask(mDownloadCallback);
         mDownloadTask.execute(mUrl);
     }

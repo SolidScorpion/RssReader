@@ -24,11 +24,10 @@ import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
 import com.example.antony.rssreader.networking.NetworkFragment;
 import com.example.antony.rssreader.utilities.Constants;
-import com.example.antony.rssreader.utilities.Parser;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>, Parser.ParseCompleteCallback {
+public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>, MainScreenContract.View {
     private DrawerLayout mDrawerLayout;
     private RecyclerView mMenuRw;
     private RecyclerView mMainContentRw;
@@ -37,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     private NetworkFragment mNetworkFragment;
     private Button mBtn;
     private FeedAdapter feedAdapter;
+    private MenuAdapter mMenuAdapter;
+    private MainScreenContract.Presenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +48,25 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mPresenter = new MainScreenPresenterImpl(this);
         setSupportActionBar(mToolbar);
         mBtn = (Button) findViewById(R.id.btn);
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mNetworkFragment.startDownload();
+                mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
             }
         });
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mMenuRw = (RecyclerView) findViewById(R.id.menuRw);
-        mMenuRw.setLayoutManager(new LinearLayoutManager(this));
-        mMenuRw.setAdapter(new MenuAdapter());
+        initMainContent();
+        initSideBarMenu();
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
+    }
+
+    private void initMainContent() {
         mMainContentRw = (RecyclerView) findViewById(R.id.contentRw);
         LinearLayoutManager layout = new LinearLayoutManager(this);
         mMainContentRw.setLayoutManager(layout);
@@ -66,11 +74,14 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
         mMainContentRw.setAdapter(feedAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layout.getOrientation());
         mMainContentRw.addItemDecoration(dividerItemDecoration);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        mNetworkFragment = NetworkFragment.getInstance(Constants.KOTAKU_RSS_FEED_LINK, getSupportFragmentManager());
+    }
+
+    private void initSideBarMenu() {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mMenuRw = (RecyclerView) findViewById(R.id.menuRw);
+        mMenuRw.setLayoutManager(new LinearLayoutManager(this));
+        mMenuAdapter = new MenuAdapter();
+        mMenuRw.setAdapter(mMenuAdapter);
     }
 
     @Override
@@ -94,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     @Override
     public void deliverResult(RssFeed result) {
-        new Parser(this).execute(result);
+        mPresenter.OnDeliveredResult(result);
     }
 
     @Override
@@ -105,12 +116,17 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     }
 
     @Override
-    public void onParsed(List<RssFeedItem> resultList) {
+    public void showMessage(String message) {
+        Snackbar.make(mMainContentRw, message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showData(List<RssFeedItem> resultList) {
         feedAdapter.updateData(resultList);
     }
 
     @Override
-    public void onError(String error) {
-        Snackbar.make(mMainContentRw, error, Snackbar.LENGTH_SHORT).show();
+    public void makeNetworkCall(String link) {
+        mNetworkFragment.startDownload(link);
     }
 }
