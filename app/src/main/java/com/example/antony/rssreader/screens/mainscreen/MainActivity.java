@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     private NetworkFragment mNetworkFragment;
     private FeedAdapter feedAdapter;
     private MenuAdapter mMenuAdapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private MainScreenContract.Presenter mPresenter;
 
     @Override
@@ -45,6 +47,13 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
+            }
+        });
         mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
         mPresenter = new MainScreenPresenterImpl(this);
         setSupportActionBar(mToolbar);
@@ -96,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     @Override
     public void deliverResult(RssFeed result) {
+        swipeRefreshLayout.setRefreshing(false);
         mPresenter.OnDeliveredResult(result);
     }
 
