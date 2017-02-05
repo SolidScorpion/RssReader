@@ -1,5 +1,6 @@
 package com.example.antony.rssreader.screens.mainscreen;
 
+import com.example.antony.rssreader.database.RssFeedDatabase;
 import com.example.antony.rssreader.models.RssFeed;
 import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.utilities.Parser;
@@ -12,8 +13,10 @@ import java.util.List;
 
 public class MainScreenPresenterImpl implements MainScreenContract.Presenter, Parser.ParseCompleteCallback {
     private MainScreenContract.View mView;
-    public MainScreenPresenterImpl(MainScreenContract.View view) {
+    private RssFeedDatabase mDatabase;
+    public MainScreenPresenterImpl(MainScreenContract.View view, RssFeedDatabase rssDatabase) {
         mView = view;
+        this.mDatabase = rssDatabase;
     }
 
     @Override
@@ -29,9 +32,15 @@ public class MainScreenPresenterImpl implements MainScreenContract.Presenter, Pa
     }
 
     @Override
+    public List<RssFeedItem> queryDatabase() {
+        return mDatabase.getAllData();
+    }
+
+    @Override
     public void onParsed(List<RssFeedItem> resultList) {
         if (resultList != null) {
-            mView.showData(resultList);
+            mDatabase.saveRssListToDatabase(resultList);
+            mView.showData(mDatabase.getAllData());
         }
     }
 

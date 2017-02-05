@@ -24,5 +24,7 @@ public interface MainScreenContract {
         void fetchData(String link);
 
         void OnDeliveredResult(RssFeed result);
+
+        List<RssFeedItem> queryDatabase();
     }
 }

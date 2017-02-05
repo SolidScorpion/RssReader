@@ -38,6 +38,6 @@ public class RssFeedItemDiffCallback extends DiffUtil.Callback {
     public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
         RssFeedItem rssFeedItem = oldList.get(oldItemPosition);
         RssFeedItem newItem = newList.get(newItemPosition);
-        return rssFeedItem.getTitle() == newItem.getTitle() && rssFeedItem.getImgUrl() == newItem.getImgUrl();
+        return rssFeedItem.getTitle().equals(newItem.getTitle()) && rssFeedItem.getImgUrl().equals(newItem.getImgUrl());
     }
 }

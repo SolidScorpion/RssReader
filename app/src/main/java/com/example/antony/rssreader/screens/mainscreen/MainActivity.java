@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.adapters.FeedAdapter;
 import com.example.antony.rssreader.adapters.MenuAdapter;
+import com.example.antony.rssreader.database.RssDatabaseImpl;
 import com.example.antony.rssreader.models.RssFeed;
 import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
@@ -26,7 +27,7 @@ import com.example.antony.rssreader.utilities.Constants;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>, MainScreenContract.View {
+public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>, MainScreenContract.View{
     private DrawerLayout mDrawerLayout;
     private RecyclerView mMenuRw;
     private RecyclerView mMainContentRw;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
             }
         });
         mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
-        mPresenter = new MainScreenPresenterImpl(this);
+        mPresenter = new MainScreenPresenterImpl(this, new RssDatabaseImpl(this));
         setSupportActionBar(mToolbar);
         initMainContent();
         initSideBarMenu();
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
         LinearLayoutManager layout = new LinearLayoutManager(this);
         mMainContentRw.setLayoutManager(layout);
         feedAdapter = new FeedAdapter();
+        feedAdapter.updateData(mPresenter.queryDatabase());
         mMainContentRw.setAdapter(feedAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layout.getOrientation());
         mMainContentRw.addItemDecoration(dividerItemDecoration);
@@ -123,11 +125,13 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     @Override
     public void showData(List<RssFeedItem> resultList) {
-        feedAdapter.updateData(resultList);
+       feedAdapter.updateData(resultList);
     }
 
     @Override
     public void makeNetworkCall(String link) {
         mNetworkFragment.startDownload(link);
     }
+
+
 }
