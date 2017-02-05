@@ -1,44 +1,40 @@
 package com.example.antony.rssreader.screens.mainscreen;
 
 import android.content.res.Configuration;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.antony.rssreader.R;
-import com.example.antony.rssreader.UrlClickListener;
-import com.example.antony.rssreader.adapters.FeedAdapter;
+import com.example.antony.rssreader.WebController;
 import com.example.antony.rssreader.adapters.MenuAdapter;
-import com.example.antony.rssreader.database.RssDatabaseImpl;
-import com.example.antony.rssreader.models.RssFeed;
-import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
 import com.example.antony.rssreader.networking.NetworkFragment;
+import com.example.antony.rssreader.screens.content.ContentFragment;
+import com.example.antony.rssreader.screens.webscreen.WebContentFragment;
+import com.example.antony.rssreader.screens.webscreen.WebInteractionFragment;
 import com.example.antony.rssreader.utilities.Constants;
 
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>, MainScreenContract.View{
+
+public class MainActivity extends AppCompatActivity implements MainScreenContract.View, WebController {
     private DrawerLayout mDrawerLayout;
     private RecyclerView mMenuRw;
-    private RecyclerView mMainContentRw;
     private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
     private NetworkFragment mNetworkFragment;
-    private FeedAdapter feedAdapter;
     private MenuAdapter mMenuAdapter;
-    private SwipeRefreshLayout swipeRefreshLayout;
     private MainScreenContract.Presenter mPresenter;
+    private static final String CONTENT_TAG = "contentTag";
+    private static final String WEB_TAG = "webContent";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,40 +45,15 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
-            }
-        });
         mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
-        mPresenter = new MainScreenPresenterImpl(this, new RssDatabaseImpl(this));
+        mPresenter = new MainScreenPresenterImpl(this);
         setSupportActionBar(mToolbar);
-        initMainContent();
         initSideBarMenu();
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
-
-    private void initMainContent() {
-        mMainContentRw = (RecyclerView) findViewById(R.id.contentRw);
-        LinearLayoutManager layout = new LinearLayoutManager(this);
-        mMainContentRw.setLayoutManager(layout);
-        feedAdapter = new FeedAdapter(new UrlClickListener() {
-            @Override
-            public void onLinkClicked(String url) {
-                showMessage("Click url: " + url);
-            }
-        });
-        feedAdapter.updateData(mPresenter.queryDatabase());
-        mMainContentRw.setAdapter(feedAdapter);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layout.getOrientation());
-        mMainContentRw.addItemDecoration(dividerItemDecoration);
-    }
-
     private void initSideBarMenu() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mMenuRw = (RecyclerView) findViewById(R.id.menuRw);
@@ -95,26 +66,23 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
-        mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
+        showContentFragment(Constants.KOTAKU_RSS_FEED_LINK);
+    }
+
+    private void showContentFragment(String feedLink) {
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        if (supportFragmentManager.findFragmentByTag(CONTENT_TAG) == null) {
+            FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+            ContentFragment instance = ContentFragment.getInstance(feedLink);
+            fragmentTransaction.add(R.id.fragmentContainer, instance, CONTENT_TAG);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public NetworkInfo getNetworkInfo() {
-        ConnectivityManager systemService = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = systemService.getActiveNetworkInfo();
-        return activeNetworkInfo;
-    }
-
-    @Override
-    public void deliverResult(RssFeed result) {
-        swipeRefreshLayout.setRefreshing(false);
-        mPresenter.OnDeliveredResult(result);
     }
 
     @Override
@@ -126,18 +94,42 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     @Override
     public void showMessage(String message) {
-        Snackbar.make(mMainContentRw, message, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(findViewById(R.id.content), message, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showData(List<RssFeedItem> resultList) {
-       feedAdapter.updateData(resultList);
+    public void onLinkClicked(String url) {
+        FragmentManager manager = getSupportFragmentManager();
+        WebContentFragment instance = WebContentFragment.getInstance(url);
+        manager.beginTransaction().replace(R.id.fragmentContainer, instance, WEB_TAG)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
-    public void makeNetworkCall(String link) {
-        mNetworkFragment.startDownload(link);
+    public void sendNetworkRequest(String url, DownloadCallBack callBack) {
+        mNetworkFragment.startDownload(url, callBack);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (isWebFragmentAvailable()) {
+            WebInteractionFragment webInteractionFragment = getWebInteractionFragment();
+            if (webInteractionFragment.canGoBack()) {
+                webInteractionFragment.goBack();
+            }
+        } else {
+            super.onBackPressed();
+        }
+    }
 
+    private boolean isWebFragmentAvailable() {
+        FragmentManager fm = getSupportFragmentManager();
+        return fm.findFragmentByTag(WEB_TAG) != null;
+    }
+
+    private WebInteractionFragment getWebInteractionFragment() {
+        WebInteractionFragment fragmentByTag = (WebInteractionFragment) getSupportFragmentManager().findFragmentByTag(WEB_TAG);
+        return fragmentByTag;
+    }
 }

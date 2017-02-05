@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.antony.rssreader.R;
-import com.example.antony.rssreader.UrlClickListener;
+import com.example.antony.rssreader.WebController;
 import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.ImageAsyncTask;
 import com.example.antony.rssreader.utilities.CommonUtils;
@@ -27,8 +27,8 @@ import java.util.List;
 public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder> {
     private List<RssFeedItem> items = new ArrayList<>();
     private static final String TAG = "FeedAdapter";
-    private UrlClickListener clickListener;
-    public FeedAdapter(UrlClickListener clickListener) {
+    private WebController clickListener;
+    public FeedAdapter(WebController clickListener) {
         this.clickListener = clickListener;
     }
     public void updateData(List<RssFeedItem> newData) {

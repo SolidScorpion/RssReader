@@ -8,7 +8,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
 import android.view.View;
 
-import com.example.antony.rssreader.UrlClickListener;
+import com.example.antony.rssreader.WebController;
 
 /**
  * Created by Pripachkin on 05.02.2017.
@@ -18,7 +18,7 @@ public class CommonUtils {
     private CommonUtils() {
     }
 
-    public static Spanned fromHtml(String text, UrlClickListener clickListener) {
+    public static Spanned fromHtml(String text, WebController clickListener) {
         Spanned result = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             result = Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT, null, null);
@@ -32,7 +32,7 @@ public class CommonUtils {
         }
         return spannableStringBuilder;
     }
-    private static void makeLinkClickable(SpannableStringBuilder stringBuilder, final URLSpan span, final UrlClickListener listener) {
+    private static void makeLinkClickable(SpannableStringBuilder stringBuilder, final URLSpan span, final WebController listener) {
         int spanStart = stringBuilder.getSpanStart(span);
         int spanEnd = stringBuilder.getSpanEnd(span);
         int spanFlags = stringBuilder.getSpanFlags(span);

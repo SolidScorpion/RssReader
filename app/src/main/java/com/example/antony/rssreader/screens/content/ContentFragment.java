@@ -2,8 +2,11 @@ package com.example.antony.rssreader.screens.content;
 
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
@@ -14,25 +17,46 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.antony.rssreader.R;
-import com.example.antony.rssreader.UrlClickListener;
+import com.example.antony.rssreader.WebController;
 import com.example.antony.rssreader.adapters.FeedAdapter;
+import com.example.antony.rssreader.database.RssDatabaseImpl;
+import com.example.antony.rssreader.database.RssFeedDatabase;
+import com.example.antony.rssreader.models.RssFeed;
+import com.example.antony.rssreader.models.RssFeedItem;
+import com.example.antony.rssreader.networking.DownloadCallBack;
+import com.example.antony.rssreader.utilities.Constants;
 
-public class ContentFragment extends Fragment implements ContentFragmentContract.View {
+import java.util.List;
+
+import static android.content.Context.CONNECTIVITY_SERVICE;
+
+public class ContentFragment extends Fragment implements ContentFragmentContract.View, DownloadCallBack<RssFeed> {
     private FeedAdapter feedAdapter;
     private RecyclerView mMainContentRw;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private UrlClickListener mUrlClickListener;
+    private WebController mWebController;
+    private RssFeedDatabase rssFeedDatabase;
+    private static final String URL_KEY = "URLKEY_CONTENT";
     private ContentFragmentContract.Presenter mPresenter;
+
     public ContentFragment() {
+    }
+
+    public static ContentFragment getInstance(String url) {
+        Bundle bundle = new Bundle();
+        bundle.putString(URL_KEY, url);
+        ContentFragment contentFragment = new ContentFragment();
+        contentFragment.setArguments(bundle);
+        return contentFragment;
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (!(context instanceof UrlClickListener)) {
+        if (!(context instanceof WebController)) {
             throw new IllegalStateException("Must implement url click listener");
         }
-        mUrlClickListener = (UrlClickListener) context;
+        mWebController = (WebController) context;
     }
 
     @Override
@@ -48,11 +72,19 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
     }
 
     private void initMainContent(View view) {
-        mPresenter = new ContentFragmentPresenterImpl(this);
+        rssFeedDatabase = new RssDatabaseImpl(getContext());
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
+            }
+        });
+        mPresenter = new ContentFragmentPresenterImpl(this, rssFeedDatabase);
         mMainContentRw = (RecyclerView) view.findViewById(R.id.contentRw);
         LinearLayoutManager layout = new LinearLayoutManager(getContext());
         mMainContentRw.setLayoutManager(layout);
-        feedAdapter = new FeedAdapter(mUrlClickListener);
+        feedAdapter = new FeedAdapter(mWebController);
         feedAdapter.updateData(mPresenter.queryDatabase());
         mMainContentRw.setAdapter(feedAdapter);
         DividerItemDecoration dividerItemDecoration =
@@ -60,4 +92,36 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
         mMainContentRw.addItemDecoration(dividerItemDecoration);
     }
 
+    @Override
+    public NetworkInfo getNetworkInfo() {
+        ConnectivityManager systemService = (ConnectivityManager) getContext().getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = systemService.getActiveNetworkInfo();
+        return activeNetworkInfo;
+    }
+
+    @Override
+    public void deliverResult(RssFeed result) {
+        mPresenter.OnDeliveredResult(result);
+    }
+
+    @Override
+    public void cancelDownload() {
+        mWebController.cancelDownload();
+    }
+
+    @Override
+    public void showData(List<RssFeedItem> resultList) {
+        swipeRefreshLayout.setRefreshing(false);
+        feedAdapter.updateData(resultList);
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Snackbar.make(mMainContentRw, message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void makeNetworkCall(String link) {
+        mWebController.sendNetworkRequest(link, this);
+    }
 }

@@ -1,6 +1,5 @@
 package com.example.antony.rssreader.networking;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.support.v4.app.FragmentManager;
 
 public class NetworkFragment extends Fragment {
     private static final String TAG = "NetworkFragment";
-    private static final String URL_KEY = "urlKey";
     private DownloadCallBack mDownloadCallback;
     private DownloadTask mDownloadTask;
 
@@ -27,15 +25,6 @@ public class NetworkFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (!(context instanceof DownloadCallBack)) {
-            throw new IllegalStateException("Must implement DownloadCallback");
-        }
-        mDownloadCallback = (DownloadCallBack) context;
-    }
-
-    @Override
     public void onDetach() {
         super.onDetach();
         mDownloadCallback = null;
@@ -47,7 +36,8 @@ public class NetworkFragment extends Fragment {
         setRetainInstance(true);
     }
 
-    public void startDownload(String mUrl) {
+    public void startDownload(String mUrl, DownloadCallBack callBack) {
+        mDownloadCallback = callBack;
         mDownloadTask = new DownloadTask(mDownloadCallback);
         mDownloadTask.execute(mUrl);
     }
