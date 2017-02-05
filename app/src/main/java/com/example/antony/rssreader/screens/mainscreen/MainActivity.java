@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,7 @@ import com.example.antony.rssreader.utilities.Parser;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>{
+public class MainActivity extends AppCompatActivity implements DownloadCallBack<RssFeed>, Parser.ParseCompleteCallback {
     private DrawerLayout mDrawerLayout;
     private RecyclerView mMenuRw;
     private RecyclerView mMainContentRw;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     private NetworkFragment mNetworkFragment;
     private Button mBtn;
     private FeedAdapter feedAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        mBtn  = (Button) findViewById(R.id.btn);
+        mBtn = (Button) findViewById(R.id.btn);
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,14 +94,23 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     @Override
     public void deliverResult(RssFeed result) {
-        List<RssFeedItem> rssFeedItems = new Parser().parseRssFeed(result);
-        feedAdapter.updateData(rssFeedItems);
+        new Parser(this).execute(result);
     }
 
     @Override
     public void cancelDownload() {
-        if (mNetworkFragment !=null) {
+        if (mNetworkFragment != null) {
             mNetworkFragment.cancelDownload();
         }
+    }
+
+    @Override
+    public void onParsed(List<RssFeedItem> resultList) {
+        feedAdapter.updateData(resultList);
+    }
+
+    @Override
+    public void onError(String error) {
+        Snackbar.make(mMainContentRw, error, Snackbar.LENGTH_SHORT).show();
     }
 }

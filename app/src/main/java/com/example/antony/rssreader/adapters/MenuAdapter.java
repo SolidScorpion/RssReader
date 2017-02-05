@@ -25,6 +25,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
     private List<String> items = new ArrayList<>();
     private static final int FOOTER_TYPE = 123;
     private static final int USUAL_TYPE = 3432;
+    private static final int FOOTER_COUNT = 1;
 
     public MenuAdapter() {
     }
@@ -101,6 +102,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
 
     @Override
     public int getItemCount() {
-        return items.size() + 1;
+        return items.size() + FOOTER_COUNT;
     }
 }

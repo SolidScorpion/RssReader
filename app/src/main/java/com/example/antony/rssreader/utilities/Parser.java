@@ -1,6 +1,7 @@
 package com.example.antony.rssreader.utilities;
 
 
+import android.os.AsyncTask;
 import android.util.Xml;
 
 import com.example.antony.rssreader.models.RssFeed;
@@ -19,18 +20,42 @@ import java.util.List;
  * Created by Pripachkin on 04.02.2017.
  */
 
-public class Parser {
+public class Parser extends AsyncTask<RssFeed, Void, List<RssFeedItem>> {
+    public interface ParseCompleteCallback {
+        void onParsed(List<RssFeedItem> resultList);
+        void onError(String error);
+    }
     private XmlPullParser parser;
+    private ParseCompleteCallback mCallback;
     private static final String TITLE_TAG = "title";
     private static final String LINK_TAG = "link";
     private static final String DESCRIPTION_TAG = "description";
     private static final String ITEM_TAG = "item";
+    private static final String DATE_TAG = "pubDate";
 
-    public Parser() {
+    public Parser(ParseCompleteCallback callback) {
+        this.mCallback = callback;
         parser = Xml.newPullParser();
     }
 
-    public List<RssFeedItem> parseRssFeed(RssFeed feed) {
+    @Override
+    protected List<RssFeedItem> doInBackground(RssFeed... params) {
+        if (params != null && params.length > 0) {
+            return parseRssFeed(params[0]);
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(List<RssFeedItem> rssFeedItems) {
+        if (rssFeedItems != null) {
+            mCallback.onParsed(rssFeedItems);
+        } else {
+            mCallback.onError("Parse resulted in error");
+        }
+    }
+
+    private List<RssFeedItem> parseRssFeed(RssFeed feed) {
         String rawResponse = feed.getRawResponse();
         List<RssFeedItem> returnList = new ArrayList<>();
         StringReader stringReader = null;
@@ -42,15 +67,19 @@ public class Parser {
             parser.nextTag();
             returnList = readFeed(parser);
         } catch (XmlPullParserException e) {
-            e.printStackTrace();
+            showError(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            showError(e);
         } finally {
             if (stringReader != null) {
                 stringReader.close();
             }
         }
         return returnList;
+    }
+
+    private void showError(Exception e) {
+        mCallback.onError("Parse error " + e.toString());
     }
 
     private List<RssFeedItem> readFeed(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -74,6 +103,7 @@ public class Parser {
         String title = null;
         String link = null;
         String description = null;
+        String pubDate = null;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) continue;
             String name = parser.getName();
@@ -83,11 +113,13 @@ public class Parser {
                 link = readTagContent(parser, LINK_TAG);
             } else if (name.equals(DESCRIPTION_TAG)) {
                 description = readTagContent(parser, DESCRIPTION_TAG);
+            } else if (name.equals(DATE_TAG)) {
+                pubDate = readTagContent(parser, DATE_TAG);
             } else {
                 skip(parser);
             }
         }
-        return new RssFeedItem(title, link, description);
+        return new RssFeedItem(title, link, RssItemUtil.removeImgTags(description), pubDate, RssItemUtil.getImgUrl(description));
     }
 
     private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {

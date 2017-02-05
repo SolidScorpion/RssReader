@@ -7,11 +7,24 @@ package com.example.antony.rssreader.models;
 public class RssFeedItem {
     private String title;
     private String linkUrl;
+    private String description;
+    private String imgUrl;
+    private String date;
 
-    public RssFeedItem(String title, String linkUrl, String description) {
+    public RssFeedItem(String title, String linkUrl, String description, String date, String imgUrl) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.description = description;
+        this.date = date;
+        this.imgUrl = imgUrl;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     public String getTitle() {
@@ -25,6 +38,4 @@ public class RssFeedItem {
     public String getDescription() {
         return description;
     }
-
-    private String description;
 }
