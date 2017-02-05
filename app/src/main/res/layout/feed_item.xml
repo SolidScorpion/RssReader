@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/imgFeed"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/img_width"
+        android:layout_height="@dimen/img_height"
         android:layout_margin="8dp" />
 
     <LinearLayout

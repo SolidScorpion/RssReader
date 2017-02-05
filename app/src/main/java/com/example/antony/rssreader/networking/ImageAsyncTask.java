@@ -42,7 +42,6 @@ public class ImageAsyncTask extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap bitmap) {
         if (bitmap != null) {
-            bitmap = Bitmap.createBitmap(bitmap, 0, 0, imageView.getWidth(), imageView.getHeight());
             imageView.setImageBitmap(bitmap);
         }
     }
