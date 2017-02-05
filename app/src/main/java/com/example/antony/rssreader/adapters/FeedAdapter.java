@@ -3,11 +3,13 @@ package com.example.antony.rssreader.adapters;
 import android.content.Context;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.antony.rssreader.R;
+import com.example.antony.rssreader.UrlClickListener;
 import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.ImageAsyncTask;
 import com.example.antony.rssreader.utilities.CommonUtils;
@@ -25,7 +27,10 @@ import java.util.List;
 public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder> {
     private List<RssFeedItem> items = new ArrayList<>();
     private static final String TAG = "FeedAdapter";
-
+    private UrlClickListener clickListener;
+    public FeedAdapter(UrlClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
     public void updateData(List<RssFeedItem> newData) {
         if (newData != null) {
             RssFeedItemDiffCallback rssFeedItemDiffCallback = new RssFeedItemDiffCallback(items, newData);
@@ -53,7 +58,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder> {
             ImageAsyncTask imageAsyncTask = new ImageAsyncTask(holder.image);
             imageAsyncTask.execute(imgUrl);
         }
-        holder.textView.setText(CommonUtils.fromHtml(rssFeedItem.getDescription()));
+        holder.textView.setText(CommonUtils.fromHtml(rssFeedItem.getDescription(), clickListener));
+        holder.textView.setMovementMethod(LinkMovementMethod.getInstance());
         holder.feedTitle.setText(rssFeedItem.getTitle());
     }
 

@@ -16,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.antony.rssreader.R;
+import com.example.antony.rssreader.UrlClickListener;
 import com.example.antony.rssreader.adapters.FeedAdapter;
 import com.example.antony.rssreader.adapters.MenuAdapter;
 import com.example.antony.rssreader.database.RssDatabaseImpl;
@@ -70,7 +71,12 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
         mMainContentRw = (RecyclerView) findViewById(R.id.contentRw);
         LinearLayoutManager layout = new LinearLayoutManager(this);
         mMainContentRw.setLayoutManager(layout);
-        feedAdapter = new FeedAdapter();
+        feedAdapter = new FeedAdapter(new UrlClickListener() {
+            @Override
+            public void onLinkClicked(String url) {
+                showMessage("Click url: " + url);
+            }
+        });
         feedAdapter.updateData(mPresenter.queryDatabase());
         mMainContentRw.setAdapter(feedAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layout.getOrientation());
