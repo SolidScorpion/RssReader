@@ -13,8 +13,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.adapters.FeedAdapter;
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
     private NetworkFragment mNetworkFragment;
-    private Button mBtn;
     private FeedAdapter feedAdapter;
     private MenuAdapter mMenuAdapter;
     private MainScreenContract.Presenter mPresenter;
@@ -48,22 +45,15 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
 
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
         mPresenter = new MainScreenPresenterImpl(this);
         setSupportActionBar(mToolbar);
-        mBtn = (Button) findViewById(R.id.btn);
-        mBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
-            }
-        });
         initMainContent();
         initSideBarMenu();
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
     }
 
     private void initMainContent() {
@@ -88,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements DownloadCallBack<
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
+        mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
     }
 
     @Override
