@@ -23,7 +23,7 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
 
     @Override
     public void queryDatabase() {
-        mDatabase.getDataAsync(new RssFeedDatabase.DatabaseCallback() {
+        mDatabase.getDataAsync(new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
             @Override
             public void onDataReceived(List<RssFeedItem> data) {
                 mView.showData(data);
@@ -50,7 +50,7 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
 
     @Override
     public void onParsed(final List<RssFeedItem> resultList) {
-        mDatabase.saveRssListToDatabaseAsync(resultList, new RssFeedDatabase.DatabaseCallback() {
+        mDatabase.saveRssListToDatabaseAsync(resultList, new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
             @Override
             public void onDataReceived(List<RssFeedItem> data) {
 
@@ -58,7 +58,7 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
 
             @Override
             public void onDataSaved() {
-                mView.showData(new ArrayList<RssFeedItem>(resultList));
+            mView.showData(new ArrayList<RssFeedItem>(resultList));
             }
         });
     }

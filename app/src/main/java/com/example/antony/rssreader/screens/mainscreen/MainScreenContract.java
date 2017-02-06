@@ -1,5 +1,9 @@
 package com.example.antony.rssreader.screens.mainscreen;
 
+import com.example.antony.rssreader.models.MenuItem;
+
+import java.util.List;
+
 /**
  * Created by Pripachkin on 05.02.2017.
  */
@@ -10,9 +14,11 @@ public interface MainScreenContract {
         void showMessage(String message);
 
 
+        void showMenuItems(List<MenuItem> data);
     }
 
     interface Presenter {
 
+        void getFeeds();
     }
 }

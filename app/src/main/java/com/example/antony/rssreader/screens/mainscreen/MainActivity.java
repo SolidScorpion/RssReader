@@ -4,8 +4,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,10 @@ import android.support.v7.widget.Toolbar;
 import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.WebController;
 import com.example.antony.rssreader.adapters.MenuAdapter;
+import com.example.antony.rssreader.adapters.SimpleFragmentPagerAdapter;
+import com.example.antony.rssreader.database.RssDatabaseImpl;
+import com.example.antony.rssreader.database.RssFeedDatabase;
+import com.example.antony.rssreader.models.MenuItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
 import com.example.antony.rssreader.networking.NetworkFragment;
 import com.example.antony.rssreader.screens.content.ContentFragment;
@@ -23,6 +29,7 @@ import com.example.antony.rssreader.screens.webscreen.WebContentFragment;
 import com.example.antony.rssreader.screens.webscreen.WebInteractionFragment;
 import com.example.antony.rssreader.utilities.Constants;
 
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements MainScreenContract.View, WebController {
@@ -33,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     private NetworkFragment mNetworkFragment;
     private MenuAdapter mMenuAdapter;
     private MainScreenContract.Presenter mPresenter;
+    private ViewPager mViewPager;
+    private TabLayout mTabLayout;
+    private SimpleFragmentPagerAdapter pagerAdapter;
     private static final String CONTENT_TAG = "contentTag";
     private static final String WEB_TAG = "webContent";
 
@@ -45,8 +55,13 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
 
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        pagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(pagerAdapter);
+        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        mTabLayout.setupWithViewPager(mViewPager);
         mNetworkFragment = NetworkFragment.getInstance(getSupportFragmentManager());
-        mPresenter = new MainScreenPresenterImpl(this);
+        mPresenter = new MainScreenPresenterImpl(this, new RssDatabaseImpl(this));
         setSupportActionBar(mToolbar);
         initSideBarMenu();
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_descr, R.string.app_name);
@@ -66,17 +81,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
-        showContentFragment(Constants.KOTAKU_RSS_FEED_LINK);
-    }
-
-    private void showContentFragment(String feedLink) {
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        if (supportFragmentManager.findFragmentByTag(CONTENT_TAG) == null) {
-            FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-            ContentFragment instance = ContentFragment.getInstance(feedLink);
-            fragmentTransaction.add(R.id.fragmentContainer, instance, CONTENT_TAG);
-            fragmentTransaction.commit();
-        }
+        mPresenter.getFeeds();
     }
 
     @Override
@@ -95,6 +100,11 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     @Override
     public void showMessage(String message) {
         Snackbar.make(findViewById(R.id.content), message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showMenuItems(List<MenuItem> data) {
+        pagerAdapter.updateData(data);
     }
 
     @Override

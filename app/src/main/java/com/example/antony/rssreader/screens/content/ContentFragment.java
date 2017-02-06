@@ -24,7 +24,6 @@ import com.example.antony.rssreader.database.RssFeedDatabase;
 import com.example.antony.rssreader.models.RssFeed;
 import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
-import com.example.antony.rssreader.utilities.Constants;
 
 import java.util.List;
 
@@ -36,6 +35,7 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
     private SwipeRefreshLayout swipeRefreshLayout;
     private WebController mWebController;
     private RssFeedDatabase rssFeedDatabase;
+    private String url;
     private static final String URL_KEY = "URLKEY_CONTENT";
     private ContentFragmentContract.Presenter mPresenter;
 
@@ -48,6 +48,12 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
         ContentFragment contentFragment = new ContentFragment();
         contentFragment.setArguments(bundle);
         return contentFragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        url = getArguments().getString(URL_KEY);
     }
 
     @Override
@@ -77,7 +83,7 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mPresenter.fetchData(Constants.KOTAKU_RSS_FEED_LINK);
+                mPresenter.fetchData(url);
             }
         });
         mPresenter = new ContentFragmentPresenterImpl(this, rssFeedDatabase);
