@@ -26,5 +26,10 @@ public interface ContentFragmentContract {
         void fetchData(String link);
 
         void OnDeliveredResult(RssFeed result);
+
+        void sortByNewest();
+
+        void sortByOldest();
+
     }
 }

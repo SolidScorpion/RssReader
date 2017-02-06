@@ -3,5 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/refresh"
         app:showAsAction="always"
-        android:title="@string/menu_refresh"/>
+
+        android:title="@string/menu_refresh"> </item>
+    <item android:id="@+id/byOldest"
+        android:title="Sort: By oldest"/>
+    <item android:id="@+id/byNewest"
+        android:title="Sort: By newest"/>
 </menu>

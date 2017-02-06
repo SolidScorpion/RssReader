@@ -7,10 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="drawerArrowStyle">@style/DrawerIcon</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <item name="actionOverflowMenuStyle">@style/menuStyle</item>
+    </style>
+    <style name="menuStyle" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
     <style name="ToolbarStyle" parent="AppTheme">
         <item name="android:editTextColor">@android:color/white</item>
         <item name="colorControlNormal">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
     </style>
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@android:color/white</item>

@@ -13,6 +13,9 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -54,6 +57,27 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         url = getArguments().getString(URL_KEY);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.refresh : swipeRefreshLayout.setRefreshing(true);
+                mPresenter.fetchData(url);
+                break;
+            case R.id.byNewest: mPresenter.sortByNewest();
+                break;
+            case R.id.byOldest: mPresenter.sortByOldest();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

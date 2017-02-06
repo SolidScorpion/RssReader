@@ -53,6 +53,16 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
     }
 
     @Override
+    public void sortByNewest() {
+
+    }
+
+    @Override
+    public void sortByOldest() {
+
+    }
+
+    @Override
     public void onParsed(final List<RssFeedItem> resultList) {
         mDatabase.saveRssListToDatabaseAsync(resultList, new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
             @Override
