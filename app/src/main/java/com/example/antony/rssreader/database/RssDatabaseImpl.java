@@ -95,10 +95,11 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
     }
 
     @Override
-    public List<RssFeedItem> getAllData() {
+    public List<RssFeedItem> getAllData(String url) {
         List<RssFeedItem> resultList = new ArrayList<>();
         SQLiteDatabase database = getWritableDatabase();
-        Cursor query = database.query(RssFeedTable.TABLE_NAME_RSS, null, null, null, null, null, null);
+        Cursor query = database.rawQuery("SELECT * FROM " + RssFeedTable.TABLE_NAME_RSS + " WHERE " + RssFeedTable.LINK + " = ?", new String[]{url});
+//        Cursor query = database.query(RssFeedTable.TABLE_NAME_RSS, null, null, null, null, null, null);
         if (query.moveToFirst()) {
             int titleIndex = query.getColumnIndex(RssFeedTable.TITLE);
             int linkIndex = query.getColumnIndex(RssFeedTable.LINK);
@@ -152,11 +153,11 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
     }
 
     @Override
-    public void getDataAsync(final DatabaseCallback callback) {
+    public void getDataAsync(final String url, final DatabaseCallback callback) {
         new AsyncTask<Void, Void, List<RssFeedItem>>() {
             @Override
             protected List<RssFeedItem> doInBackground(Void... params) {
-                List<RssFeedItem> allData = getAllData();
+                List<RssFeedItem> allData = getAllData(url);
                 return allData;
             }
 
@@ -260,5 +261,12 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
                 databaseCallback.onDataReceived(items);
             }
         }.execute();
+    }
+
+    @Override
+    public void removeMenuItem(MenuItem item) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + MenuItemsTable.TABLE_NAME_MENU_ITEMS + " WHERE " + MenuItemsTable.SERVICE_LINK + " =?", new String[]{item.getServiceUrl()});
+        db.close();
     }
 }

@@ -21,7 +21,7 @@ public interface ContentFragmentContract {
 
     interface Presenter {
 
-        void queryDatabase();
+        void queryDatabase(String url);
 
         void fetchData(String link);
 

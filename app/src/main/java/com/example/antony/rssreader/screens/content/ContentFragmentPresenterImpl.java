@@ -22,8 +22,8 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
     }
 
     @Override
-    public void queryDatabase() {
-        mDatabase.getDataAsync(new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
+    public void queryDatabase(String url) {
+        mDatabase.getDataAsync(url,new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
             @Override
             public void onDataReceived(List<RssFeedItem> data) {
                 mView.showData(data);

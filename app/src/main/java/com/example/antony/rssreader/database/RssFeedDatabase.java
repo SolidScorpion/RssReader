@@ -13,15 +13,17 @@ public interface RssFeedDatabase {
     void saveRssListToDatabase(List<RssFeedItem> items);
     void saveRssItemToDatabase(RssFeedItem item);
     void saveRssListToDatabaseAsync(List<RssFeedItem> data,DatabaseCallback<RssFeedItem> callback);
-    List<RssFeedItem> getAllData();
+    List<RssFeedItem> getAllData(String url);
     boolean hasData();
     void clearAllData();
-    void getDataAsync(DatabaseCallback callback);
+    void getDataAsync(String url, DatabaseCallback callback);
     void saveMenuItem(MenuItem item);
     void saveMenuItems(List<MenuItem> items);
     List<MenuItem> getMenuItems();
     void saveMenuItemsAsync(List<MenuItem> items, DatabaseCallback callback);
     void getMenuItemsAsync(DatabaseCallback<MenuItem> databaseCallback);
+
+    void removeMenuItem(MenuItem item);
 
     interface DatabaseCallback <T>{
         void onDataReceived(List<T> data);

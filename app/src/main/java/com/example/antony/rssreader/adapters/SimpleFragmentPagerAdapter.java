@@ -23,10 +23,12 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     public void addUrl(String url, String name) {
         items.add(new MenuItem(url, name));
+        notifyDataSetChanged();
     }
 
     public void addUrl(MenuItem item) {
         items.add(item);
+        notifyDataSetChanged();
     }
 
     @Override

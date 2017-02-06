@@ -35,4 +35,14 @@ public class MainScreenPresenterImpl implements MainScreenContract.Presenter {
             }
         });
     }
+
+    @Override
+    public void saveMenuItem(MenuItem item) {
+        database.saveMenuItem(item);
+    }
+
+    @Override
+    public void removeItem(MenuItem item) {
+        database.removeMenuItem(item);
+    }
 }

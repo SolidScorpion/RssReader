@@ -24,6 +24,7 @@ import com.example.antony.rssreader.database.RssFeedDatabase;
 import com.example.antony.rssreader.models.MenuItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
 import com.example.antony.rssreader.networking.NetworkFragment;
+import com.example.antony.rssreader.screens.AddMenuItemDialog;
 import com.example.antony.rssreader.screens.content.ContentFragment;
 import com.example.antony.rssreader.screens.webscreen.WebContentFragment;
 import com.example.antony.rssreader.screens.webscreen.WebInteractionFragment;
@@ -32,7 +33,7 @@ import com.example.antony.rssreader.utilities.Constants;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements MainScreenContract.View, WebController {
+public class MainActivity extends AppCompatActivity implements MainScreenContract.View, WebController, MenuAdapter.MenuItemClickListener, AddMenuItemDialog.AddMenuListener {
     private DrawerLayout mDrawerLayout;
     private RecyclerView mMenuRw;
     private Toolbar mToolbar;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     private TabLayout mTabLayout;
     private SimpleFragmentPagerAdapter pagerAdapter;
     private static final String CONTENT_TAG = "contentTag";
+    private static final String DIALOG_TAG = "addMenuDialog";
     private static final String WEB_TAG = "webContent";
 
     @Override
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mMenuRw = (RecyclerView) findViewById(R.id.menuRw);
         mMenuRw.setLayoutManager(new LinearLayoutManager(this));
-        mMenuAdapter = new MenuAdapter();
+        mMenuAdapter = new MenuAdapter(this);
         mMenuRw.setAdapter(mMenuAdapter);
     }
 
@@ -127,6 +129,8 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
             WebInteractionFragment webInteractionFragment = getWebInteractionFragment();
             if (webInteractionFragment.canGoBack()) {
                 webInteractionFragment.goBack();
+            } else {
+                super.onBackPressed();
             }
         } else {
             super.onBackPressed();
@@ -141,5 +145,39 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     private WebInteractionFragment getWebInteractionFragment() {
         WebInteractionFragment fragmentByTag = (WebInteractionFragment) getSupportFragmentManager().findFragmentByTag(WEB_TAG);
         return fragmentByTag;
+    }
+
+    @Override
+    public void addMenuItem() {
+        AddMenuItemDialog addMenuItemDialog = new AddMenuItemDialog();
+        addMenuItemDialog.show(getSupportFragmentManager(),DIALOG_TAG);
+    }
+
+    @Override
+    public void onMenuItemClick(MenuItem item) {
+        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
+            TabLayout.Tab tabAt = mTabLayout.getTabAt(i);
+            if (tabAt.getText().equals(item.getServiceName())) {
+                tabAt.select();
+            }
+        }
+    }
+
+    @Override
+    public boolean removeItem(MenuItem item) {
+        if (item.getServiceUrl().equals(Constants.KOTAKU_RSS_FEED_LINK)) {
+            return false;
+        }
+        mPresenter.removeItem(item);
+        return true;
+    }
+
+    @Override
+    public void onItemAdded(MenuItem item) {
+        mPresenter.saveMenuItem(item);
+        mTabLayout.addTab(mTabLayout.newTab());
+        pagerAdapter.addUrl(item);
+        mMenuAdapter.addMenuItem(item);
+
     }
 }
