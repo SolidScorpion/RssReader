@@ -93,6 +93,12 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
         }
     }
 
+    public void updateData(List<MenuItem> items) {
+        for (MenuItem item : items) {
+            addMenuItem(item);
+        }
+    }
+
     public void addMenuItem(MenuItem item) {
         items.add(item);
         notifyItemInserted(items.size());

@@ -19,10 +19,11 @@ public interface MainScreenContract {
 
     interface Presenter {
 
-        void getFeeds();
-
         void saveMenuItem(MenuItem item);
 
         void removeItem(MenuItem item);
+
+        void getMenuItems();
+
     }
 }

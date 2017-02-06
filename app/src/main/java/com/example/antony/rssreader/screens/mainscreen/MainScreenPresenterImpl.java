@@ -3,7 +3,6 @@ package com.example.antony.rssreader.screens.mainscreen;
 import com.example.antony.rssreader.database.RssDatabaseImpl;
 import com.example.antony.rssreader.database.RssFeedDatabase;
 import com.example.antony.rssreader.models.MenuItem;
-import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.utilities.Constants;
 
 import java.util.List;
@@ -22,7 +21,17 @@ public class MainScreenPresenterImpl implements MainScreenContract.Presenter {
     }
 
     @Override
-    public void getFeeds() {
+    public void saveMenuItem(MenuItem item) {
+        database.saveMenuItem(item);
+    }
+
+    @Override
+    public void removeItem(MenuItem item) {
+        database.removeMenuItem(item);
+    }
+
+    @Override
+    public void getMenuItems() {
         database.getMenuItemsAsync(new RssFeedDatabase.DatabaseCallback<MenuItem>() {
             @Override
             public void onDataReceived(List<MenuItem> data) {
@@ -34,15 +43,5 @@ public class MainScreenPresenterImpl implements MainScreenContract.Presenter {
 
             }
         });
-    }
-
-    @Override
-    public void saveMenuItem(MenuItem item) {
-        database.saveMenuItem(item);
-    }
-
-    @Override
-    public void removeItem(MenuItem item) {
-        database.removeMenuItem(item);
     }
 }

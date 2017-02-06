@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,14 +17,12 @@ import android.support.v7.widget.Toolbar;
 import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.WebController;
 import com.example.antony.rssreader.adapters.MenuAdapter;
-import com.example.antony.rssreader.adapters.SimpleFragmentPagerAdapter;
+import com.example.antony.rssreader.adapters.SimpleFragmentAdapter;
 import com.example.antony.rssreader.database.RssDatabaseImpl;
-import com.example.antony.rssreader.database.RssFeedDatabase;
 import com.example.antony.rssreader.models.MenuItem;
 import com.example.antony.rssreader.networking.DownloadCallBack;
 import com.example.antony.rssreader.networking.NetworkFragment;
 import com.example.antony.rssreader.screens.AddMenuItemDialog;
-import com.example.antony.rssreader.screens.content.ContentFragment;
 import com.example.antony.rssreader.screens.webscreen.WebContentFragment;
 import com.example.antony.rssreader.screens.webscreen.WebInteractionFragment;
 import com.example.antony.rssreader.utilities.Constants;
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     private MainScreenContract.Presenter mPresenter;
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
-    private SimpleFragmentPagerAdapter pagerAdapter;
+    private SimpleFragmentAdapter pagerAdapter;
     private static final String CONTENT_TAG = "contentTag";
     private static final String DIALOG_TAG = "addMenuDialog";
     private static final String WEB_TAG = "webContent";
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     private void init(Bundle savedInstanceState) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        pagerAdapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new SimpleFragmentAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(pagerAdapter);
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -83,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
-        mPresenter.getFeeds();
+        mPresenter.getMenuItems();
     }
 
     @Override
@@ -107,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     @Override
     public void showMenuItems(List<MenuItem> data) {
         pagerAdapter.updateData(data);
+        mMenuAdapter.updateData(data);
     }
 
     @Override
@@ -155,12 +153,20 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
 
     @Override
     public void onMenuItemClick(MenuItem item) {
+        TabLayout.Tab menuItemTab = getMenuItemTab(item);
+        if (menuItemTab != null) {
+            menuItemTab.select();
+        }
+    }
+
+    private TabLayout.Tab getMenuItemTab(MenuItem item) {
         for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             TabLayout.Tab tabAt = mTabLayout.getTabAt(i);
             if (tabAt.getText().equals(item.getServiceName())) {
-                tabAt.select();
+                return tabAt;
             }
         }
+        return null;
     }
 
     @Override
@@ -169,6 +175,11 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
             return false;
         }
         mPresenter.removeItem(item);
+        pagerAdapter.removeItem(item);
+        TabLayout.Tab menuItemTab = getMenuItemTab(item);
+        if (menuItemTab != null) {
+            mTabLayout.removeTab(menuItemTab);
+        }
         return true;
     }
 

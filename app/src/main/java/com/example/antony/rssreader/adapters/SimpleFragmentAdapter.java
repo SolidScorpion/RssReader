@@ -2,7 +2,7 @@ package com.example.antony.rssreader.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.antony.rssreader.models.MenuItem;
 import com.example.antony.rssreader.screens.content.ContentFragment;
@@ -14,10 +14,10 @@ import java.util.List;
  * Created by Antony on 2/6/2017.
  */
 
-public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
+public class SimpleFragmentAdapter extends FragmentStatePagerAdapter {
     private List<MenuItem> items = new ArrayList<>();
 
-    public SimpleFragmentPagerAdapter(FragmentManager fm) {
+    public SimpleFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -43,6 +43,11 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
+
+    @Override
     public int getCount() {
         return items.size();
     }
@@ -54,5 +59,10 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
             }
             notifyDataSetChanged();
         }
+    }
+
+    public void removeItem(MenuItem item) {
+        items.remove(item);
+        notifyDataSetChanged();
     }
 }
