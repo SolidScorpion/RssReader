@@ -72,9 +72,9 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
             case R.id.refresh : swipeRefreshLayout.setRefreshing(true);
                 mPresenter.fetchData(url);
                 break;
-            case R.id.byNewest: mPresenter.sortByNewest();
+            case R.id.byNewest: mPresenter.sortByNewest(url);
                 break;
-            case R.id.byOldest: mPresenter.sortByOldest();
+            case R.id.byOldest: mPresenter.sortByOldest(url);
                 break;
         }
         return super.onOptionsItemSelected(item);

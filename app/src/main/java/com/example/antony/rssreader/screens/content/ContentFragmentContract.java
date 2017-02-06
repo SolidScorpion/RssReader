@@ -27,9 +27,9 @@ public interface ContentFragmentContract {
 
         void OnDeliveredResult(RssFeed result);
 
-        void sortByNewest();
+        void sortByNewest(String url);
 
-        void sortByOldest();
+        void sortByOldest(String url);
 
     }
 }

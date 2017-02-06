@@ -6,6 +6,7 @@ import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.utilities.Parser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
     @Override
     public void queryDatabase(String url) {
         if (mDatabase.hasData()) {
-            mDatabase.getDataAsync(url,new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
+            mDatabase.getDataAsync(url, new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
                 @Override
                 public void onDataReceived(List<RssFeedItem> data) {
                     mView.showData(data);
@@ -53,13 +54,39 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
     }
 
     @Override
-    public void sortByNewest() {
+    public void sortByNewest(String url) {
+        if (mDatabase.hasData()) {
+            mDatabase.getDataAsync(url, new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
+                @Override
+                public void onDataReceived(List<RssFeedItem> data) {
+                    Collections.sort(data, Collections.<RssFeedItem>reverseOrder());
+                    mView.showData(data);
+                }
 
+                @Override
+                public void onDataSaved() {
+
+                }
+            });
+        }
     }
 
     @Override
-    public void sortByOldest() {
+    public void sortByOldest(String url) {
+        if (mDatabase.hasData()) {
+            mDatabase.getDataAsync(url, new RssFeedDatabase.DatabaseCallback<RssFeedItem>() {
+                @Override
+                public void onDataReceived(List<RssFeedItem> data) {
+                    Collections.sort(data);
+                    mView.showData(data);
+                }
 
+                @Override
+                public void onDataSaved() {
+
+                }
+            });
+        }
     }
 
     @Override
@@ -72,7 +99,7 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
 
             @Override
             public void onDataSaved() {
-            mView.showData(new ArrayList<RssFeedItem>(resultList));
+                mView.showData(new ArrayList<RssFeedItem>(resultList));
             }
         });
     }

@@ -1,16 +1,21 @@
 package com.example.antony.rssreader.models;
 
+import android.support.annotation.NonNull;
+
+import com.example.antony.rssreader.utilities.DateUtils;
+
 /**
  * Created by Pripachkin on 04.02.2017.
  */
 
-public class RssFeedItem {
+public class RssFeedItem implements Comparable<RssFeedItem> {
     private String title;
     private String linkUrl;
     private String description;
     private String imgUrl;
     private String date;
     private String requestUrl;
+
     public RssFeedItem(String title, String linkUrl, String description, String date, String imgUrl, String requestUrl) {
         this.title = title;
         this.linkUrl = linkUrl;
@@ -67,5 +72,10 @@ public class RssFeedItem {
         result = 31 * result + (imgUrl != null ? imgUrl.hashCode() : 0);
         result = 31 * result + date.hashCode();
         return result;
+    }
+
+    @Override
+    public int compareTo(@NonNull RssFeedItem o) {
+        return DateUtils.compareDates(getDate(), o.getDate());
     }
 }
