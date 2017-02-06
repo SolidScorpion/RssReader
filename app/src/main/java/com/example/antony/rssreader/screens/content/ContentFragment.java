@@ -69,12 +69,15 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         switch (itemId) {
-            case R.id.refresh : swipeRefreshLayout.setRefreshing(true);
+            case R.id.refresh:
+                swipeRefreshLayout.setRefreshing(true);
                 mPresenter.fetchData(url);
                 break;
-            case R.id.byNewest: mPresenter.sortByNewest(url);
+            case R.id.byNewest:
+                mPresenter.sortByNewest(url);
                 break;
-            case R.id.byOldest: mPresenter.sortByOldest(url);
+            case R.id.byOldest:
+                mPresenter.sortByOldest(url);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -114,6 +117,7 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
         LinearLayoutManager layout = new LinearLayoutManager(getContext());
         mMainContentRw.setLayoutManager(layout);
         feedAdapter = new FeedAdapter(mWebController);
+        feedAdapter.setHasStableIds(true);
         mPresenter.queryDatabase(url);
         mMainContentRw.setAdapter(feedAdapter);
         DividerItemDecoration dividerItemDecoration =
@@ -142,6 +146,9 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
     public void showData(List<RssFeedItem> resultList) {
         swipeRefreshLayout.setRefreshing(false);
         feedAdapter.updateData(resultList);
+        if (!resultList.isEmpty()) {
+            mMainContentRw.smoothScrollToPosition(0);
+        }
     }
 
     @Override

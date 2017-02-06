@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private SimpleFragmentAdapter pagerAdapter;
-    private static final String CONTENT_TAG = "contentTag";
     private static final String DIALOG_TAG = "addMenuDialog";
     private static final String WEB_TAG = "webContent";
 

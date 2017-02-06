@@ -70,6 +70,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder> {
     }
 
     @Override
+    public long getItemId(int position) {
+        RssFeedItem rssFeedItem = items.get(position);
+        return rssFeedItem.getDescription().hashCode();
+    }
+
+    @Override
     public void onViewRecycled(FeedViewHolder holder) {
         ImageAsyncTask imageAsyncTask = cacheMap.get(holder.image);
         if (imageAsyncTask != null && !imageAsyncTask.isCancelled()) {
