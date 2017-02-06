@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 
 import com.example.antony.rssreader.R;
 import com.example.antony.rssreader.WebController;
@@ -156,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements MainScreenContrac
         TabLayout.Tab menuItemTab = getMenuItemTab(item);
         if (menuItemTab != null) {
             menuItemTab.select();
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
