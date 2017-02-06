@@ -12,7 +12,8 @@ public class RssFeedTable {
     public static final String DESCRIPTION = "description";
     public static final String DATE = "pubDate";
     public static final String IMG_LINK = "imgLink";
-    public static String[] columns = new String[]{ID, TITLE, LINK, DESCRIPTION, DATE, IMG_LINK};
+    public static final String REQUEST_LINK = "requestLink";
+    public static String[] columns = new String[]{ID, TITLE, LINK, DESCRIPTION, DATE, IMG_LINK, REQUEST_LINK};
 
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME_RSS + " ( " + ID + " integer primary key autoincrement, " +
@@ -20,6 +21,7 @@ public class RssFeedTable {
                     " " + LINK + " text," +
                     " " + DESCRIPTION + " text," +
                     " " + IMG_LINK + " text," +
+                    " " + REQUEST_LINK + " text," +
                     " " + DATE + " text );";
     public static final String DROP_TABLE = " DROP TABLE IF EXISTS" + TABLE_NAME_RSS;
 

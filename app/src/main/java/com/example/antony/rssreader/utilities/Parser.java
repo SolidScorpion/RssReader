@@ -32,7 +32,7 @@ public class Parser extends AsyncTask<RssFeed, Void, List<RssFeedItem>> {
     private static final String DESCRIPTION_TAG = "description";
     private static final String ITEM_TAG = "item";
     private static final String DATE_TAG = "pubDate";
-
+    private String originalLink;
     public Parser(ParseCompleteCallback callback) {
         this.mCallback = callback;
         parser = Xml.newPullParser();
@@ -57,6 +57,7 @@ public class Parser extends AsyncTask<RssFeed, Void, List<RssFeedItem>> {
 
     private List<RssFeedItem> parseRssFeed(RssFeed feed) {
         String rawResponse = feed.getRawResponse();
+        originalLink = feed.getOriginalLink();
         List<RssFeedItem> returnList = new ArrayList<>();
         StringReader stringReader = null;
         try {
@@ -119,7 +120,7 @@ public class Parser extends AsyncTask<RssFeed, Void, List<RssFeedItem>> {
                 skip(parser);
             }
         }
-        return new RssFeedItem(title, link, RssItemUtil.removeImgTags(description), pubDate, RssItemUtil.getImgUrl(description));
+        return new RssFeedItem(title, link, RssItemUtil.removeImgTags(description), pubDate, RssItemUtil.getImgUrl(description), originalLink);
     }
 
     private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {

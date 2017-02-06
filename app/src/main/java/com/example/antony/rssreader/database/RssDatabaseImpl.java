@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 
 import com.example.antony.rssreader.models.MenuItem;
+import com.example.antony.rssreader.models.RssFeed;
 import com.example.antony.rssreader.models.RssFeedItem;
 
 import java.util.ArrayList;
@@ -71,6 +72,7 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
         contentValues.put(RssFeedTable.IMG_LINK, item.getImgUrl());
         contentValues.put(RssFeedTable.DESCRIPTION, item.getDescription());
         contentValues.put(RssFeedTable.DATE, item.getDate());
+        contentValues.put(RssFeedTable.REQUEST_LINK, item.getRequestUrl());
         writableDatabase.insert(RssFeedTable.TABLE_NAME_RSS, null, contentValues);
         writableDatabase.close();
     }
@@ -98,16 +100,17 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
     public List<RssFeedItem> getAllData(String url) {
         List<RssFeedItem> resultList = new ArrayList<>();
         SQLiteDatabase database = getWritableDatabase();
-        Cursor query = database.rawQuery("SELECT * FROM " + RssFeedTable.TABLE_NAME_RSS + " WHERE " + RssFeedTable.LINK + " = ?", new String[]{url});
-//        Cursor query = database.query(RssFeedTable.TABLE_NAME_RSS, null, null, null, null, null, null);
+        String select = "SELECT * FROM " + RssFeedTable.TABLE_NAME_RSS + " WHERE " + RssFeedTable.REQUEST_LINK + " =?";
+        Cursor query = database.rawQuery(select, new String[]{url});
         if (query.moveToFirst()) {
             int titleIndex = query.getColumnIndex(RssFeedTable.TITLE);
             int linkIndex = query.getColumnIndex(RssFeedTable.LINK);
             int descriptionIndex = query.getColumnIndex(RssFeedTable.DESCRIPTION);
             int dateIndex = query.getColumnIndex(RssFeedTable.DATE);
             int imgLinkIndex = query.getColumnIndex(RssFeedTable.IMG_LINK);
+            int originalLinkIndex = query.getColumnIndex(RssFeedTable.REQUEST_LINK);
             do {
-                addRssItem(resultList, query, titleIndex, linkIndex, descriptionIndex, dateIndex, imgLinkIndex);
+                addRssItem(resultList, query, titleIndex, linkIndex, descriptionIndex, dateIndex, imgLinkIndex, originalLinkIndex);
             } while (query.moveToNext());
         }
         query.close();
@@ -116,13 +119,14 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
     }
 
     private void addRssItem(List<RssFeedItem> resultList, Cursor query, int titleIndex,
-                            int linkIndex, int descriptionIndex, int dateIndex, int imgLinkIndex) {
+                            int linkIndex, int descriptionIndex, int dateIndex, int imgLinkIndex, int originalLinkIndex) {
         String title = query.getString(titleIndex);
         String link = query.getString(linkIndex);
         String description = query.getString(descriptionIndex);
         String date = query.getString(dateIndex);
         String imgLink = query.getString(imgLinkIndex);
-        RssFeedItem rssItem = new RssFeedItem(title, link, description, date, imgLink);
+        String originalLink = query.getString(originalLinkIndex);
+        RssFeedItem rssItem = new RssFeedItem(title, link, description, date, imgLink, originalLink);
         resultList.add(rssItem);
     }
 

@@ -22,6 +22,7 @@ import java.net.URL;
 public class DownloadTask extends AsyncTask<String, Void, RssFeed> {
     private DownloadCallBack<RssFeed> mCallback;
     private static final String TAG = "DownloadTask";
+    private String originalLink;
     public DownloadTask (DownloadCallBack<RssFeed> callBack) {
         setCallBack(callBack);
     }
@@ -47,9 +48,9 @@ public class DownloadTask extends AsyncTask<String, Void, RssFeed> {
     protected RssFeed doInBackground(String... params) {
         RssFeed rssFeed = null;
         if (!isCancelled() && params != null && params.length > 0) {
-            String location= params[0];
+            originalLink = params[0];
             try {
-                URL url = new URL(location);
+                URL url = new URL(originalLink);
                 rssFeed = downloadUrl(url);
                 return rssFeed;
             } catch (MalformedURLException e) {
@@ -86,7 +87,7 @@ public class DownloadTask extends AsyncTask<String, Void, RssFeed> {
                 InputStreamReader reader = new InputStreamReader(steam);
                 BufferedReader bufferedReader= new BufferedReader(reader);
                 String response = readStream(steam);
-                return new RssFeed(response);
+                return new RssFeed(response, originalLink);
             }
         } catch (IOException e) {
             e.printStackTrace();

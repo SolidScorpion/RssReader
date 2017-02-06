@@ -10,13 +10,18 @@ public class RssFeedItem {
     private String description;
     private String imgUrl;
     private String date;
-
-    public RssFeedItem(String title, String linkUrl, String description, String date, String imgUrl) {
+    private String requestUrl;
+    public RssFeedItem(String title, String linkUrl, String description, String date, String imgUrl, String requestUrl) {
         this.title = title;
         this.linkUrl = linkUrl;
         this.description = description;
         this.date = date;
         this.imgUrl = imgUrl;
+        this.requestUrl = requestUrl;
+    }
+
+    public String getRequestUrl() {
+        return requestUrl;
     }
 
     public String getDate() {
