@@ -21,7 +21,7 @@ public interface ContentFragmentContract {
 
     interface Presenter {
 
-        List<RssFeedItem> queryDatabase();
+        void queryDatabase();
 
         void fetchData(String link);
 

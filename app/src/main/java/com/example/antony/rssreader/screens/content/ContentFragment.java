@@ -85,7 +85,7 @@ public class ContentFragment extends Fragment implements ContentFragmentContract
         LinearLayoutManager layout = new LinearLayoutManager(getContext());
         mMainContentRw.setLayoutManager(layout);
         feedAdapter = new FeedAdapter(mWebController);
-        feedAdapter.updateData(mPresenter.queryDatabase());
+        mPresenter.queryDatabase();
         mMainContentRw.setAdapter(feedAdapter);
         DividerItemDecoration dividerItemDecoration =
                 new DividerItemDecoration(getContext(), layout.getOrientation());

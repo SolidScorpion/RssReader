@@ -5,6 +5,7 @@ import com.example.antony.rssreader.models.RssFeed;
 import com.example.antony.rssreader.models.RssFeedItem;
 import com.example.antony.rssreader.utilities.Parser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,8 +22,18 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
     }
 
     @Override
-    public List<RssFeedItem> queryDatabase() {
-        return null;
+    public void queryDatabase() {
+        mDatabase.getDataAsync(new RssFeedDatabase.DatabaseCallback() {
+            @Override
+            public void onDataReceived(List<RssFeedItem> data) {
+                mView.showData(data);
+            }
+
+            @Override
+            public void onDataSaved() {
+
+            }
+        });
     }
 
     @Override
@@ -38,9 +49,18 @@ public class ContentFragmentPresenterImpl implements ContentFragmentContract.Pre
     }
 
     @Override
-    public void onParsed(List<RssFeedItem> resultList) {
-        mDatabase.saveRssListToDatabase(resultList);
-        mView.showData(resultList);
+    public void onParsed(final List<RssFeedItem> resultList) {
+        mDatabase.saveRssListToDatabaseAsync(resultList, new RssFeedDatabase.DatabaseCallback() {
+            @Override
+            public void onDataReceived(List<RssFeedItem> data) {
+
+            }
+
+            @Override
+            public void onDataSaved() {
+                mView.showData(new ArrayList<RssFeedItem>(resultList));
+            }
+        });
     }
 
     @Override

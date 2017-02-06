@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.AsyncTask;
 
 import com.example.antony.rssreader.models.RssFeedItem;
+import com.example.antony.rssreader.screens.content.ContentFragmentContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,26 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
         contentValues.put(RssFeedTable.DESCRIPTION, item.getDescription());
         contentValues.put(RssFeedTable.DATE, item.getDate());
         writableDatabase.insert(RssFeedTable.TABLE_NAME_RSS, null, contentValues);
+        writableDatabase.close();
+    }
+
+    @Override
+    public void saveRssListToDatabaseAsync(List<RssFeedItem> data, final DatabaseCallback callback) {
+        new AsyncTask<List<RssFeedItem>, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(List<RssFeedItem>... params) {
+                List<RssFeedItem> param = params[0];
+                saveRssListToDatabase(param);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                callback.onDataSaved();
+            }
+        }.execute(data);
     }
 
     @Override
@@ -120,5 +142,21 @@ public class RssDatabaseImpl extends SQLiteOpenHelper implements RssFeedDatabase
     public void clearAllData() {
         getWritableDatabase().execSQL("delete from " + RssFeedTable.TABLE_NAME_RSS);
         getWritableDatabase().execSQL("delete from " + MenuItemsTable.TABLE_NAME_MENU_ITEMS);
+    }
+
+    @Override
+    public void getDataAsync(final DatabaseCallback callback) {
+        new AsyncTask<Void, Void, List<RssFeedItem>>() {
+            @Override
+            protected List<RssFeedItem> doInBackground(Void... params) {
+                List<RssFeedItem> allData = getAllData();
+                return allData;
+            }
+
+            @Override
+            protected void onPostExecute(List<RssFeedItem> rssFeedItems) {
+                callback.onDataReceived(rssFeedItems);
+            }
+        }.execute();
     }
 }
